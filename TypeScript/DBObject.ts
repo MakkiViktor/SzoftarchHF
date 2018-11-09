@@ -7,7 +7,7 @@ export interface DBParam{
 }
 
 export abstract class DBObject implements DALObj{
-    protected getIDSql : string;
+    protected getByIDSql : string;
     protected updateSql : string;
     protected insertSql : string;
 
@@ -40,7 +40,7 @@ export abstract class DBObject implements DALObj{
     save(){
         if(this.id == null)
             return;      
-        if(this.db.execute(this.getIDSql)[0].ID === this.id){
+        if(this.db.execute(this.getByIDSql)[0].ID === this.id){
             this.db.execute(this.updateSql);
         }
         else
@@ -53,7 +53,7 @@ export abstract class DBObject implements DALObj{
 
     private initializeCommands(){
 
-        this.getIDSql = "SELECT * FROM "+ this.tableName +" WHERE ID = " + this.id + ";";
+        this.getByIDSql = "SELECT * FROM "+ this.tableName +" WHERE ID = " + this.id + ";";
 
         this.updateSql = "UPDATE " + this.tableName + " SET ";
         for(var i = 0; i < this.DBparams.length; i++){
