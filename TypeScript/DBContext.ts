@@ -10,7 +10,7 @@ export class DBContext{
     //itt a titkositásra valamit ki kellene találni
     constructor(){
         this.connection = mysql.createConnection({
-            host: "213.222.166.231:3306",
+            host: "tudvari.ddns.net:3306",
             user : "viktor",
             password: "viktor"
         })
