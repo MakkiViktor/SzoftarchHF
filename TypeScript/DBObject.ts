@@ -56,7 +56,7 @@ export abstract class DBObject implements DALObj{
 
         this.getIDSql = "SELECT * FROM "+ this.tableName +" WHERE ID = " + this.id + ";";
 
-        this.updateSql = "UPDATE user SET ";
+        this.updateSql = "UPDATE " + this.tableName + " SET ";
         for(var i = 0; i < this.DBparams.length; i++){
             if(this.DBparams[i].fk_table === null)
                 this.updateSql = this.updateSql + this.DBparams[i].name + "= " + this.DBparams[i].value;
