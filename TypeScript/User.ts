@@ -27,7 +27,7 @@ export class User extends DBObject{
         this.lastName = json['LastName'];
     }
 
-    commit(){
+    initializeDBParams(){
         this.DBparams = [
             { name : "Username", value : this.username, fk_table : null},
             { name : "Password", value : this.password, fk_table : null },

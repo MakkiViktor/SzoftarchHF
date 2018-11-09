@@ -22,7 +22,7 @@ export class Word extends DBObject{
         this.dictionary = new Dictionary(this.db);
         this.dictionary.load(this.getMany("dictionaries", {name : "ID", value : json['DictID'], fk_table : null}))
     }
-    commit(){
+    initializeDBParams(){
         this.DBparams = [
             { name : "word1", value : this.word1, fk_table : null },
             { name : "word2", value : this.word2, fk_table : null },

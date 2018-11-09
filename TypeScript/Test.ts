@@ -41,7 +41,7 @@ export class Test extends DBObject{
         this.loadWords();
     }
 
-    commit(){
+    initializeDBParams(){
         this.DBparams = [
             { name : "Name", value : this.name, fk_table : null },
             { name : "Level", value : this.level, fk_table : null },

@@ -24,11 +24,11 @@ export abstract class DBObject implements DALObj{
         this.tableName = TableName;
         var result = this.db.execute("SELECT COUNT(*) AS Amount FROM " + TableName);
         this.id = result[0]["Amount"];
+        this.initializeDBParams();
         this.initializeCommands(); 
     }
 
-    //update-eli a parancsokat osztálytól függően
-    abstract commit();
+    abstract initializeDBParams();
 
     abstract load(json : JSON);
 
@@ -40,7 +40,6 @@ export abstract class DBObject implements DALObj{
     save(){
         if(this.id == null)
             return;      
-        this.commit();
         if(this.db.execute(this.getIDSql)[0].ID === this.id){
             this.db.execute(this.updateSql);
         }

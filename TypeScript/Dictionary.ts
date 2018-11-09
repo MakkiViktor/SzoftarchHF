@@ -18,7 +18,7 @@ export class Dictionary extends DBObject{
         this.language2 = json['Lang2'];
     }
 
-    commit(){
+    initializeDBParams(){
         this.DBparams = [
             { name : "Lang1", value : this.language1, fk_table : null },
             { name : "Lang2", value : this.language2, fk_table : null }
