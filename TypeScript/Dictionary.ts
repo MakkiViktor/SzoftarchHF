@@ -6,8 +6,8 @@ export class Dictionary extends DBObject{
     language2 : string;  
 
 
-    constructor(DB : DBContext, ID : number= null, Language1: string= null, Language2: string= null){
-        super(DB, ID, "dictionaries");
+    constructor(DB : DBContext, Language1: string= null, Language2: string= null){
+        super(DB, "dictionaries");
         this.language1 = Language1;
         this.language2 = Language2;             
     }

@@ -8,8 +8,8 @@ export class Word extends DBObject{
     dictionary: Dictionary; 
 
 
-    constructor(DB : DBContext, ID : number= null, Word1: string= null, Word2: string= null, Dictionary : Dictionary= null){
-        super(DB, ID, "Words");
+    constructor(DB : DBContext, Word1: string= null, Word2: string= null, Dictionary : Dictionary= null){
+        super(DB, "Words");
         this.word1 = Word1;
         this.word2 = Word2;
         this.dictionary = Dictionary;         

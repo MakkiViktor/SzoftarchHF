@@ -19,8 +19,10 @@ export abstract class DBObject implements DALObj{
     id : number;
     protected db : DBContext;
     
-    constructor(DB : DBContext, ID: number, TableName: string){
-        this.db = DB; this.id = ID;
+    constructor(DB : DBContext, TableName: string){
+        this.db = DB; 
+        var result = this.db.execute("SELECT COUNT(*) AS Amount FROM " + TableName);
+        this.id = result[0]["Amount"];
     }
 
     //update-eli a parancsokat osztálytól függően

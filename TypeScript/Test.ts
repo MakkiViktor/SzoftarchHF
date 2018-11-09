@@ -12,8 +12,8 @@ export class Test extends DBObject{
     level : number;
     words : Word[];
 
-    constructor(DB : DBContext, ID : number= null, Dictionary : Dictionary = null, Creator : User = null, Level : number= null){
-        super(DB, ID, "test");
+    constructor(DB : DBContext, Dictionary : Dictionary = null, Creator : User = null, Level : number= null){
+        super(DB, "test");
         this.dictionary = Dictionary;
         this.creator = Creator;
         this.level = this.level;
