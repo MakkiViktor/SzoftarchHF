@@ -3,11 +3,11 @@ function tryToRegister(){
 	var response = "";
 	
 	var form = document.forms["signup"];
-    var username = ["username"].value;
+    var username = form["username"].value;
 	var firstName = form["firstName"].value;
-	var lastName = form["signup"]["lastName"].value;
-    var password = form['signup']['password'].value;
-	var permission = form['signup']['permission'].value;
+	var lastName = form["lastName"].value;
+    var password = form['password'].value;
+	var permission = form['permission'].value;
 	var user = new User(new DBContext(), username, password, permission, firstName, lastName);
 
 	if(user.existsInDB()) {
@@ -19,5 +19,7 @@ function tryToRegister(){
 		form.reset();
 	}
 	
+	console.log("response: " + response);
 	document.getElementById("response").innerHTML = response;
+	return false;
 }
