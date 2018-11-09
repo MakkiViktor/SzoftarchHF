@@ -21,6 +21,7 @@ export abstract class DBObject implements DALObj{
     
     constructor(DB : DBContext, TableName: string){
         this.db = DB; 
+        this.tableName = TableName;
         var result = this.db.execute("SELECT COUNT(*) AS Amount FROM " + TableName);
         this.id = result[0]["Amount"];
     }
