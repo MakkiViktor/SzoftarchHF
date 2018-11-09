@@ -2,26 +2,36 @@
 <html >
 <head>
     <meta charset="utf-8" />
-    <title>Belépés</title>
+    <title>Regisztráció</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-
+    <script src="signup.js"></script>
 </head>
 
 <body>
-    <div id = "login">
-        <form name="login" action="mainPage.html" onsubmit="return validateForm()" method="POST">
-            Felhasználó név:                
-            <input type="text" id="UserName" name="UserName" size="20" >
+
+	<p id="response"></p>
+
+    <form name="signup" onsubmit="return tryToRegister()">
+            Felhasználói név:                
+            <input type="text" id="username" name="username" size="20" >
+            <br>
+			Keresztnév:                
+            <input type="text" id="firstname" name="firstName" size="20" >
+            <br>
+			Családnév:                
+            <input type="text" id="lastname" name="lastName" size="20" >
             <br>
             Jelszó :
-            <input type="password" id="UserPassword" name="UserPassword" size="20">
-            <br><br>
+            <input type="password" id="password" name="password" size="20">
+            <br>
+			Jogok :
+            <input type="radio" name="permission" value="1"> Tanár<br>
+			<input type="radio" name="permission" value="0"> Hallgató<br>
+            <br>
+			<br>
             <input type="submit" value="Küldés">
-        </form>
-    </div>
+    </form>
     <a href="login.html">Belépés</a>
-    <a href="studentIndex.html">Student Index</a>
-    <a href="teacherIndex.html">Teacher Index</a>
 </body>
 </html>
