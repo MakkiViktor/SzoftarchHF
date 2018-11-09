@@ -34,7 +34,7 @@ export class Test extends DBObject{
     load(json: JSON){
         this.id = json['ID'];
         this.creator = new User(this.db);
-        this.creator.load(this.getMany("user", {name : "ID", value : json['CreatorID'], fk_table : null}));
+        this.creator.load(this.getMany("users", {name : "ID", value : json['CreatorID'], fk_table : null}));
         this.dictionary = new Dictionary(this.db);
         this.dictionary.load(this.getMany("dictionaries", {name : "ID", value : json['DictID'], fk_table : null}));
         this.level = json['Level'];
@@ -46,7 +46,7 @@ export class Test extends DBObject{
             { name : "Name", value : this.name, fk_table : null },
             { name : "Level", value : this.level, fk_table : null },
             { name : "DictID", value : this.dictionary.id, fk_table : "dictionaries" },
-            { name : "CreatorID", value : this.creator.id, fk_table : "user"}
+            { name : "CreatorID", value : this.creator.id, fk_table : "users"}
         ]
     }
 }
