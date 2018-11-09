@@ -4,15 +4,15 @@
     <meta charset="utf-8" />
     <title>Regisztráció</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="signup.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="CSS/main.css" />
+    <script src="JavaScript/signup.js"></script>
 </head>
 
 <body>
 
 	<p id="response"></p>
 
-    <form name="signup" onsubmit="return tryToRegister()">
+    <form name="signup" onsubmit="return tryToRegister()" method="POST">
             Felhasználói név:                
             <input type="text" id="username" name="username" size="20" >
             <br>
