@@ -9,8 +9,8 @@ export class User extends DBObject{
     lastName : string;  
 
 
-    constructor(DB : DBContext, ID: number= null, Username: string, Password: string, Permission: number, FirstName: string, LastName: string){
-        super(DB, ID, "users");
+    constructor(DB : DBContext, Username: string = null, Password: string = null, Permission: number = null, FirstName: string = null, LastName: string = null){
+        super(DB, "users");
         this.username = Username;
         this.password = Password;
         this.permission = Permission;
