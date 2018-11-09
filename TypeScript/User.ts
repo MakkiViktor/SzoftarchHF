@@ -1,34 +1,36 @@
 import { DALObj, DBContext } from './DBContext';
+import {DBObject} from "./DBObject";
 
-export class User implements DALObj{
-    id : number;
+export class User extends DBObject{
     permission : number;
     password : string;
     userName : string;
     firstName : string;
     lastName : string;  
-    private db : DBContext;  
-    private getIDSql = "SELECT * FROM user WHERE ID = " + this.id + ";";
-    private updateSql = "UPDATE user SET FName = " + this.firstName + ", LName = " + this.lastName + ", Perm = " +  
-                        this.permission + ", Password = " + this.password + ", UserName = " + this.userName + " WHERE ID = " + this.id + ";";
-    private insertSql = "INSERT INTO user (FName, LName, Perm, UserName, Password)" + "VALUES ("+
-                        this.firstName + "," + this.lastName + "," + this.permission + "," + this.userName + "," + this.password + ");"       
 
-    constructor( ID, Permission, FirstName, LastName , DB){
-        this.id = ID; this.permission = Permission;
-        this.firstName = FirstName; this.lastName = LastName;
-        this.db = DB;
+
+    constructor(DB : DBContext, ID: number= null, Permission: number= null, FirstName: string= null, LastName: string= null){
+        super(DB, ID, "user");
+        this.permission = Permission;
+        this.firstName = FirstName; this.lastName = LastName;             
     }
 
-    save(){
-        let json : JSON;
-        let id: number;                  
-        json = this.db.execute(this.getIDSql);
-        id = json[0].ID;
-        if(id === this.id){
-            this.db.execute(this.updateSql);
-        }
-        else
-            this.db.execute(this.insertSql);
+    load(json: JSON){
+        this.id = json['ID'];
+        this.permission = json['Perm'];
+        this.password = json['Password'];
+        this.firstName = json['FName'];
+        this.lastName = json['LName'];
+        this.userName = json['UserName'];
+    }
+
+    commit(){
+        this.DBparams = [
+            { name : "FName", value : this.firstName, fk_table : null },
+            { name : "LName", value : this.lastName, fk_table : null },
+            { name : "Perm", value : this.permission, fk_table : null },
+            { name : "UserName", value : this.userName, fk_table : null},
+            { name : "PassWord", value : this.password, fk_table : null }
+        ]
     }
 }
