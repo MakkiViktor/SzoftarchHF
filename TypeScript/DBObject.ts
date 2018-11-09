@@ -37,10 +37,12 @@ export abstract class DBObject implements DALObj{
         return this.db.execute(this.getManySql);
     }
 
+    existsInDB() {
+        return this.db.execute(this.getByIDSql)[0].ID === this.id;
+    }
+
     save(){
-        if(this.id == null)
-            return;      
-        if(this.db.execute(this.getByIDSql)[0].ID === this.id){
+        if(this.existsInDB()){
             this.db.execute(this.updateSql);
         }
         else
