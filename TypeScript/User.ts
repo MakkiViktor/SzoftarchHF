@@ -2,35 +2,38 @@ import { DALObj, DBContext } from './DBContext';
 import {DBObject} from "./DBObject";
 
 export class User extends DBObject{
-    permission : number;
+    username : string;
     password : string;
-    userName : string;
+    permission : number;
     firstName : string;
     lastName : string;  
 
 
-    constructor(DB : DBContext, ID: number= null, Permission: number= null, FirstName: string= null, LastName: string= null){
-        super(DB, ID, "user");
+    constructor(DB : DBContext, ID: number= null, Username: string, Password: string, Permission: number, FirstName: string, LastName: string){
+        super(DB, ID, "users");
+        this.username = Username;
+        this.password = Password;
         this.permission = Permission;
-        this.firstName = FirstName; this.lastName = LastName;             
+        this.firstName = FirstName; 
+        this.lastName = LastName;             
     }
 
     load(json: JSON){
         this.id = json['ID'];
-        this.permission = json['Perm'];
+        this.username = json['Username'];
         this.password = json['Password'];
-        this.firstName = json['FName'];
-        this.lastName = json['LName'];
-        this.userName = json['UserName'];
+        this.permission = json['Permission'];
+        this.firstName = json['FirstName'];
+        this.lastName = json['LastName'];
     }
 
     commit(){
         this.DBparams = [
-            { name : "FName", value : this.firstName, fk_table : null },
-            { name : "LName", value : this.lastName, fk_table : null },
-            { name : "Perm", value : this.permission, fk_table : null },
-            { name : "UserName", value : this.userName, fk_table : null},
-            { name : "PassWord", value : this.password, fk_table : null }
+            { name : "Username", value : this.username, fk_table : null},
+            { name : "Password", value : this.password, fk_table : null },
+            { name : "Permission", value : this.permission, fk_table : null },
+            { name : "FirstName", value : this.firstName, fk_table : null },
+            { name : "LastName", value : this.lastName, fk_table : null }
         ]
     }
 }
