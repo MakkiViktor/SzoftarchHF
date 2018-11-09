@@ -1,6 +1,6 @@
 import { DALObj, DBContext } from './DBContext';
 
-export class Test implements DALObj{
+export class User implements DALObj{
     id : number;
     permission : number;
     password : string;
