@@ -12,7 +12,7 @@ export class User extends DBObject{
     
     //TODO:A users tábla talán user
     constructor(DB : DBContext, Username: string = null, Password: string = null, Permission: number = null, FirstName: string = null, LastName: string = null){
-        super(DB, "user");
+        super(DB, "users");
         this.username = Username;
         this.password = Password;
         this.permission = Permission;

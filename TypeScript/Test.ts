@@ -29,25 +29,22 @@ export class Test extends DBObject{
         });;
     }
 
-    
-    //TODO:A users tábla talán user
     load(json: JSON){
         this.id = json['ID'];
         this.creator = new User(this.db);
-        this.creator.load(this.getMany("user", [{name : "ID", value : json['CreatorID'], fk_table : null}])[0]);
+        this.creator.load(this.getMany("users", [{name : "ID", value : json['CreatorID'], fk_table : null}])[0]);
         this.dictionary = new Dictionary(this.db);
         this.dictionary.load(this.getMany("dictionaries", [{name : "ID", value : json['DictID'], fk_table : null}])[0]);
         this.level = json['Level'];
         this.loadWords();
     }
 
-    //TODO:A users tábla talán user
     initializeDBParams(){
         this.DBparams = [
             { name : "Name", value : this.name, fk_table : null },
             { name : "Level", value : this.level, fk_table : null },
             { name : "DictID", value : this.dictionary.id, fk_table : "dictionaries" },
-            { name : "CreatorID", value : this.creator.id, fk_table : "user"}
+            { name : "CreatorID", value : this.creator.id, fk_table : "users"}
         ]
     }
 }
