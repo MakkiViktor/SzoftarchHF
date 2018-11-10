@@ -1,26 +1,20 @@
-import mysql = require('mysql');
-
-export interface DALObj{
-    save();
-}
-
-export class DBContext{
-    connection : mysql.Connection;
-    
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var mysql = require("mysql");
+var DBContext = /** @class */ (function () {
     //itt a titkositásra valamit ki kellene találni
-    constructor(){
+    function DBContext() {
         this.connection = mysql.createConnection({
             host: "tudvari.ddns.net:3306",
-            user : "viktor",
+            user: "viktor",
             password: "viktor"
-        })
+        });
     }
-
     //Ez atomi
-    execute(command: string,){
-        let fields : JSON[];
+    DBContext.prototype.execute = function (command) {
+        var fields;
         this.connection.connect(this.exception);
-        this.connection.query(command, function(err, result){
+        this.connection.query(command, function (err, result) {
             if (err)
                 this.exception(err);
             fields = result;
@@ -28,12 +22,14 @@ export class DBContext{
         this.connection.commit(this.exception);
         this.connection.end();
         return fields;
-    }
-
-    private exception(err){
+    };
+    DBContext.prototype.exception = function (err) {
         this.connection.rollback();
         this.connection.end();
         console.log(err);
         throw err;
-    }
-}
+    };
+    return DBContext;
+}());
+exports.DBContext = DBContext;
+//# sourceMappingURL=DBContext.js.map

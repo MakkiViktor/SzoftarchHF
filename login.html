@@ -4,15 +4,11 @@
     <meta charset="utf-8" />
     <title>Belépés</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    
-    <script src="login.js"></script>
-    <script src="App.js"></script>
 </head>
 
 <body>
     <div id = "login">
-        <form name="login" action="mainPage.html" method="POST">
+        <form name="login" action="mainPage.html" method="POST" onsubmit="Login.validation()">
             Felhasználó név:                
             <input type="text" id="UserName" name="UserName" size="20" >
             <br>
@@ -27,6 +23,6 @@
         <a href="studentIndex.html">Student Index</a>
         <a href="teacherIndex.html">Teacher Index</a>
     </div>
-
+    <div ></div>
 </body>
 </html>

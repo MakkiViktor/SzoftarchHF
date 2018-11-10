@@ -19,10 +19,11 @@ export abstract class DBObject implements DALObj{
     id : number;
     protected db : DBContext;
     
+    //Átveszi a paramétereket, ID-t beállítja a sorok számára, Autoincrement miatt, azt DB-ben be kell állítani
     constructor(DB : DBContext, TableName: string){
         this.db = DB; 
         this.tableName = TableName;
-        var result = this.db.execute("SELECT COUNT(*) AS Amount FROM " + TableName);
+        let result = this.db.execute("SELECT COUNT(*) AS Amount FROM " + TableName);
         this.id = result[0]["Amount"];
         this.initializeDBParams();
         this.initializeCommands(); 
@@ -32,16 +33,34 @@ export abstract class DBObject implements DALObj{
 
     abstract load(json : JSON);
 
-    getMany(table : string, keyValue : DBParam){
-        this.getManySql = "SELECT * FROM "+ table + "WHERE " + keyValue.name + " = " + keyValue.value + ";";  
+    //A meglévő adatok alapján betölt a DB-ből
+    loadFromDB() : boolean{
+        let dbParams : DBParam[];
+        let json : JSON[];
+        this.DBparams.forEach(element => {
+            if(element.value !== null)
+                dbParams[dbParams.length] = element;
+        });
+        json = this.getMany(this.tableName, dbParams);
+        if(json.length === 1){
+            this.load(this.getMany(this.tableName, dbParams)[0]);
+            return true;
+        }
+        return false;
+    }
+
+    //t0bb paraméter szerint is lehet lekérdezni
+    getMany(table : string, keyValue : DBParam[]){
+        this.initializeGetManyCommand(table, keyValue);
         return this.db.execute(this.getManySql);
     }
 
     existsInDB() {
-        return this.db.execute(this.getByIDSql)[0].ID === this.id;
+        return this.db.execute(this.getByIDSql)[0]['ID'] === this.id;
     }
 
     save(){
+        this.initializeCommands();
         if(this.existsInDB()){
             this.db.execute(this.updateSql);
         }
@@ -51,6 +70,17 @@ export abstract class DBObject implements DALObj{
 
     private fkSql(table: string, id: number){
         return "(SELECT ID FROM " + table + " WHERE ID = " +  id +" )";
+    }
+
+    private initializeGetManyCommand(table : string, keyValue : DBParam[]){
+        this.getManySql = "SELECT * FROM "+ table + "WHERE ";  
+        for(var i = 0; i < keyValue.length; i++){
+            if(i < keyValue.length - 1){
+                this.getManySql = this.getManySql +  keyValue[i].name + " = " + keyValue[i].value + " AND ";
+            }
+            else
+                this.getManySql = this.getManySql +  keyValue[i].name + " = " + keyValue[i].value + ";";
+        }
     }
 
     private initializeCommands(){

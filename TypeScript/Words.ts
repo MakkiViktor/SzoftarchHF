@@ -20,7 +20,7 @@ export class Word extends DBObject{
         this.word1 = json['word1'];
         this.word2 = json['word2'];
         this.dictionary = new Dictionary(this.db);
-        this.dictionary.load(this.getMany("dictionaries", {name : "ID", value : json['DictID'], fk_table : null}))
+        this.dictionary.load(this.getMany("dictionaries", [{name : "ID", value : json['DictID'], fk_table : null}])[0]);
     }
     initializeDBParams(){
         this.DBparams = [

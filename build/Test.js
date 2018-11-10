@@ -32,32 +32,31 @@ var Test = /** @class */ (function (_super) {
     }
     Test.prototype.loadWords = function () {
         var _this = this;
-        this.getMany("test_words", { name: "TestID", value: this.id, fk_table: null }).forEach(function (element) {
-            _this.getMany("Words", { name: "ID", value: element.WordID, fk_table: null }).forEach(function (element) {
-                if (_this.words.length !== 0)
-                    _this.words[_this.words.length] = new Words_1.Word(_this.db);
-                else
-                    _this.words[0] = new Words_1.Word(_this.db);
-                _this.words[_this.words.length - 1].load(element);
+        this.getMany("test_words", [{ name: "TestID", value: this.id, fk_table: null }]).forEach(function (element) {
+            _this.getMany("Words", [{ name: "ID", value: element[0]['WordID'], fk_table: null }]).forEach(function (element2) {
+                _this.words[_this.words.length] = new Words_1.Word(_this.db);
+                _this.words[_this.words.length - 1].load(element2);
             });
         });
         ;
     };
+    //TODO:A users tábla talán user
     Test.prototype.load = function (json) {
         this.id = json['ID'];
         this.creator = new User_1.User(this.db);
-        this.creator.load(this.getMany("users", { name: "ID", value: json['CreatorID'], fk_table: null }));
+        this.creator.load(this.getMany("user", [{ name: "ID", value: json['CreatorID'], fk_table: null }])[0]);
         this.dictionary = new Dictionary_1.Dictionary(this.db);
-        this.dictionary.load(this.getMany("dictionaries", { name: "ID", value: json['DictID'], fk_table: null }));
+        this.dictionary.load(this.getMany("dictionaries", [{ name: "ID", value: json['DictID'], fk_table: null }])[0]);
         this.level = json['Level'];
         this.loadWords();
     };
+    //TODO:A users tábla talán user
     Test.prototype.initializeDBParams = function () {
         this.DBparams = [
             { name: "Name", value: this.name, fk_table: null },
             { name: "Level", value: this.level, fk_table: null },
             { name: "DictID", value: this.dictionary.id, fk_table: "dictionaries" },
-            { name: "CreatorID", value: this.creator.id, fk_table: "users" }
+            { name: "CreatorID", value: this.creator.id, fk_table: "user" }
         ];
     };
     return Test;
