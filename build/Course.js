@@ -21,18 +21,17 @@ var Course = /** @class */ (function (_super) {
         if (Teacher === void 0) { Teacher = null; }
         if (Name === void 0) { Name = null; }
         if (Level === void 0) { Level = null; }
-        var _this = _super.call(this, DB, "user") || this;
+        var _this = _super.call(this, DB, "course") || this;
         _this.teacher = Teacher;
         _this.name = Name;
         _this.level = Level;
         _this.loadStudents();
         return _this;
     }
-    //TODO:A users tábla talán user
     Course.prototype.loadStudents = function () {
         var _this = this;
         this.getMany("user_course", [{ name: "CourseID", value: this.id, fk_table: null }]).forEach(function (element) {
-            _this.getMany("user", [{ name: "ID", value: element[0]['UserID'], fk_table: null }]).forEach(function (element) {
+            _this.getMany("users", [{ name: "ID", value: element[0]['UserID'], fk_table: null }]).forEach(function (element) {
                 if (_this.students.length !== 0)
                     _this.students[_this.students.length] = new User_1.User(_this.db);
                 else
@@ -42,21 +41,19 @@ var Course = /** @class */ (function (_super) {
         });
         ;
     };
-    //TODO:A users tábla talán user
     Course.prototype.load = function (json) {
         this.id = json['ID'];
         this.teacher = new User_1.User(this.db);
-        this.teacher.load(this.getMany("user", [{ name: "ID", value: json['TeacherID'], fk_table: null }])[0]);
+        this.teacher.load(this.getMany("users", [{ name: "ID", value: json['TeacherID'], fk_table: null }])[0]);
         this.name = json['Name'];
         this.level = json['Level'];
         this.loadStudents();
     };
-    //TODO:A users tábla talán user
     Course.prototype.initializeDBParams = function () {
         this.DBparams = [
             { name: "Name", value: this.name, fk_table: null },
             { name: "Level", value: this.level, fk_table: null },
-            { name: "TeacherID", value: this.teacher.id, fk_table: "user" }
+            { name: "TeacherID", value: this.teacher.id, fk_table: "users" }
         ];
     };
     return Course;

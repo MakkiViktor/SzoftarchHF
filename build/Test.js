@@ -40,23 +40,21 @@ var Test = /** @class */ (function (_super) {
         });
         ;
     };
-    //TODO:A users tábla talán user
     Test.prototype.load = function (json) {
         this.id = json['ID'];
         this.creator = new User_1.User(this.db);
-        this.creator.load(this.getMany("user", [{ name: "ID", value: json['CreatorID'], fk_table: null }])[0]);
+        this.creator.load(this.getMany("users", [{ name: "ID", value: json['CreatorID'], fk_table: null }])[0]);
         this.dictionary = new Dictionary_1.Dictionary(this.db);
         this.dictionary.load(this.getMany("dictionaries", [{ name: "ID", value: json['DictID'], fk_table: null }])[0]);
         this.level = json['Level'];
         this.loadWords();
     };
-    //TODO:A users tábla talán user
     Test.prototype.initializeDBParams = function () {
         this.DBparams = [
             { name: "Name", value: this.name, fk_table: null },
             { name: "Level", value: this.level, fk_table: null },
             { name: "DictID", value: this.dictionary.id, fk_table: "dictionaries" },
-            { name: "CreatorID", value: this.creator.id, fk_table: "user" }
+            { name: "CreatorID", value: this.creator.id, fk_table: "users" }
         ];
     };
     return Test;

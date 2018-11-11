@@ -23,7 +23,7 @@ var User = /** @class */ (function (_super) {
         if (Permission === void 0) { Permission = null; }
         if (FirstName === void 0) { FirstName = null; }
         if (LastName === void 0) { LastName = null; }
-        var _this = _super.call(this, DB, "user") || this;
+        var _this = _super.call(this, DB, "users") || this;
         _this.username = Username;
         _this.password = Password;
         _this.permission = Permission;
