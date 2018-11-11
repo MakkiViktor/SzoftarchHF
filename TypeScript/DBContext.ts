@@ -1,5 +1,4 @@
 import mysql = require('mysql');
-
 export interface DALObj{
     save();
 }
@@ -12,12 +11,12 @@ export class DBContext{
         this.connection = mysql.createConnection({
             host: "tudvari.ddns.net:3306",
             user : "viktor",
-            password: "viktor"
+            password: "viktor",
         })
     }
 
     //Ez atomi
-    execute(command: string,){
+    execute(command: string) {
         let fields : JSON[];
         this.connection.connect(this.exception);
         this.connection.query(command, function(err, result){
@@ -31,9 +30,11 @@ export class DBContext{
     }
 
     private exception(err){
-        this.connection.rollback();
-        this.connection.end();
-        console.log(err);
-        throw err;
+        if (err){
+            this.connection.rollback();
+            this.connection.end();
+            console.log(err);
+            throw err;
+        }
     }
 }

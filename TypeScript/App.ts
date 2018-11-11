@@ -7,16 +7,15 @@ import * as $ from 'jquery';
 export class App{
     static activeUser : User;
     static db : DBContext = new DBContext();
-    login : Login;
+    static login : Login = new Login();
     
     constructor(){
-        this.login = new Login();
-        document.addEventListener("submit", this.login.validate);
     }
 
     static main(){
         console.log("MAIN");
+        document.addEventListener("submit", this.login.validate);
     }
 }
 
-var app = new App();
+App.main();

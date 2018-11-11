@@ -5,15 +5,15 @@ var Login_1 = require("./Login");
 //Tartalmazza az aktív usert és az app paramétereket
 var App = /** @class */ (function () {
     function App() {
-        this.login = new Login_1.Login();
-        document.addEventListener("submit", this.login.validate);
     }
     App.main = function () {
         console.log("MAIN");
+        document.addEventListener("submit", this.login.validate);
     };
     App.db = new DBContext_1.DBContext();
+    App.login = new Login_1.Login();
     return App;
 }());
 exports.App = App;
-var app = new App();
+App.main();
 //# sourceMappingURL=App.js.map

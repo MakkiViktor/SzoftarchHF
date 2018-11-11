@@ -14,11 +14,12 @@ export class Course extends DBObject{
         this.name = Name;
         this.level = Level;
         this.loadStudents();
+        this.initializeDBParams();
     }
 
     private loadStudents(){
         this.getMany("user_course", [{name: "CourseID", value : this.id, fk_table : null}]).forEach(element => {
-            this.getMany("users", [{name : "ID", value : element[0]['UserID'], fk_table : null}]).forEach(element => {
+            this.getMany("users", [{name : "ID", value : element[0]['UserID'].value, fk_table : null}]).forEach(element => {
                 if(this.students.length !== 0)
                     this.students[this.students.length] = new User(this.db);
                 else this.students[0] = new User(this.db);
@@ -28,11 +29,11 @@ export class Course extends DBObject{
     }
   
     load(json: JSON){
-        this.id = json['ID'];
+        this.id = json['ID'].value;
         this.teacher = new User(this.db);
-        this.teacher.load(this.getMany("users", [{name : "ID", value : json['TeacherID'], fk_table : null}])[0]);
-        this.name = json['Name'];
-        this.level = json['Level'];
+        this.teacher.load(this.getMany("users", [{name : "ID", value : json['TeacherID'].value, fk_table : null}])[0]);
+        this.name = json['Name'].value;
+        this.level = json['Level'].value;
         this.loadStudents();
     }
 

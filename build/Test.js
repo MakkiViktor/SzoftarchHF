@@ -28,12 +28,13 @@ var Test = /** @class */ (function (_super) {
         _this.creator = Creator;
         _this.level = _this.level;
         _this.loadWords();
+        _this.initializeDBParams();
         return _this;
     }
     Test.prototype.loadWords = function () {
         var _this = this;
         this.getMany("test_words", [{ name: "TestID", value: this.id, fk_table: null }]).forEach(function (element) {
-            _this.getMany("Words", [{ name: "ID", value: element[0]['WordID'], fk_table: null }]).forEach(function (element2) {
+            _this.getMany("Words", [{ name: "ID", value: element[0]['WordID'].value, fk_table: null }]).forEach(function (element2) {
                 _this.words[_this.words.length] = new Words_1.Word(_this.db);
                 _this.words[_this.words.length - 1].load(element2);
             });
@@ -41,12 +42,12 @@ var Test = /** @class */ (function (_super) {
         ;
     };
     Test.prototype.load = function (json) {
-        this.id = json['ID'];
+        this.id = json['ID'].value;
         this.creator = new User_1.User(this.db);
-        this.creator.load(this.getMany("users", [{ name: "ID", value: json['CreatorID'], fk_table: null }])[0]);
+        this.creator.load(this.getMany("users", [{ name: "ID", value: json['CreatorID'].value, fk_table: null }])[0]);
         this.dictionary = new Dictionary_1.Dictionary(this.db);
-        this.dictionary.load(this.getMany("dictionaries", [{ name: "ID", value: json['DictID'], fk_table: null }])[0]);
-        this.level = json['Level'];
+        this.dictionary.load(this.getMany("dictionaries", [{ name: "ID", value: json['DictID'].value, fk_table: null }])[0]);
+        this.level = json['Level'].value;
         this.loadWords();
     };
     Test.prototype.initializeDBParams = function () {

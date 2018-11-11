@@ -12,15 +12,16 @@ export class Word extends DBObject{
         super(DB, "Words");
         this.word1 = Word1;
         this.word2 = Word2;
-        this.dictionary = Dictionary;         
+        this.dictionary = Dictionary; 
+        this.initializeDBParams();        
     }
 
     load(json: JSON){
-        this.id = json['ID'];
-        this.word1 = json['word1'];
-        this.word2 = json['word2'];
+        this.id = json['ID'].value;
+        this.word1 = json['word1'].value;
+        this.word2 = json['word2'].value;
         this.dictionary = new Dictionary(this.db);
-        this.dictionary.load(this.getMany("dictionaries", [{name : "ID", value : json['DictID'], fk_table : null}])[0]);
+        this.dictionary.load(this.getMany("dictionaries", [{name : "ID", value : json['DictID'].value, fk_table : null}])[0]);
     }
     initializeDBParams(){
         this.DBparams = [

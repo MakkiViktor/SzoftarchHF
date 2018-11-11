@@ -6,17 +6,17 @@ var Login_1 = require("./Login");
 //Tartalmazza az aktív usert és az app paramétereket
 var App = /** @class */ (function () {
     function App() {
-        this.login = new Login_1.Login();
-        document.addEventListener("submit", this.login.validate);
     }
     App.main = function () {
         console.log("MAIN");
+        document.addEventListener("submit", this.login.validate);
     };
     App.db = new DBContext_1.DBContext();
+    App.login = new Login_1.Login();
     return App;
 }());
 exports.App = App;
-var app = new App();
+App.main();
 
 },{"./DBContext":2,"./Login":4}],2:[function(require,module,exports){
 "use strict";
@@ -28,7 +28,7 @@ var DBContext = /** @class */ (function () {
         this.connection = mysql.createConnection({
             host: "tudvari.ddns.net:3306",
             user: "viktor",
-            password: "viktor"
+            password: "viktor",
         });
     }
     //Ez atomi
@@ -45,10 +45,12 @@ var DBContext = /** @class */ (function () {
         return fields;
     };
     DBContext.prototype.exception = function (err) {
-        this.connection.rollback();
-        this.connection.end();
-        console.log(err);
-        throw err;
+        if (err) {
+            this.connection.rollback();
+            this.connection.end();
+            console.log(err);
+            throw err;
+        }
     };
     return DBContext;
 }());
@@ -62,15 +64,15 @@ var DBObject = /** @class */ (function () {
     function DBObject(DB, TableName) {
         this.db = DB;
         this.tableName = TableName;
-        var result = this.db.execute("SELECT COUNT(*) AS Amount FROM " + TableName);
-        this.id = result[0]["Amount"];
+        //let result = this.db.execute("SELECT COUNT(*) AS Amount FROM " + TableName);
+        //this.id = result[0]["Amount"];
         this.initializeDBParams();
         this.initializeCommands();
     }
     //A meglévő adatok alapján betölt a DB-ből
     DBObject.prototype.loadFromDB = function () {
-        var dbParams;
-        var json;
+        var dbParams = [];
+        var json = [];
         this.DBparams.forEach(function (element) {
             if (element.value !== null)
                 dbParams[dbParams.length] = element;
@@ -102,7 +104,7 @@ var DBObject = /** @class */ (function () {
         return "(SELECT ID FROM " + table + " WHERE ID = " + id + " )";
     };
     DBObject.prototype.initializeGetManyCommand = function (table, keyValue) {
-        this.getManySql = "SELECT * FROM " + table + "WHERE ";
+        this.getManySql = "SELECT * FROM " + table + " WHERE ";
         for (var i = 0; i < keyValue.length; i++) {
             if (i < keyValue.length - 1) {
                 this.getManySql = this.getManySql + keyValue[i].name + " = " + keyValue[i].value + " AND ";
@@ -153,19 +155,17 @@ var Login = /** @class */ (function () {
     function Login() {
     }
     Login.prototype.validate = function () {
-        document.addEventListener("submit", function () {
-            var doc = document.forms['login'];
-            var user = new User_1.User(App_1.App.db, doc['UserName'].value);
-            if (user.loadFromDB()) {
-                if (user.password === doc['UserPassword'].value) {
-                    App_1.App.activeUser = user;
-                    return true;
-                }
+        var doc = document.forms['login'];
+        var user = new User_1.User(App_1.App.db, doc['UserName'].value);
+        if (user.loadFromDB()) {
+            if (user.password === doc['UserPassword'].value) {
+                App_1.App.activeUser = user;
+                return true;
             }
             else
                 alert("hibás felhasználó név, vagy jelszzó");
-            return false;
-        });
+        }
+        return false;
     };
     return Login;
 }());
@@ -203,15 +203,16 @@ var User = /** @class */ (function (_super) {
         _this.permission = Permission;
         _this.firstName = FirstName;
         _this.lastName = LastName;
+        _this.initializeDBParams();
         return _this;
     }
     User.prototype.load = function (json) {
-        this.id = json['ID'];
-        this.username = json['Username'];
-        this.password = json['Password'];
-        this.permission = json['Permission'];
-        this.firstName = json['FirstName'];
-        this.lastName = json['LastName'];
+        this.id = json['ID'].value;
+        this.username = json['Username'].value;
+        this.password = json['Password'].value;
+        this.permission = json['Permission'].value;
+        this.firstName = json['FirstName'].value;
+        this.lastName = json['LastName'].value;
     };
     User.prototype.initializeDBParams = function () {
         this.DBparams = [

@@ -23,8 +23,8 @@ export abstract class DBObject implements DALObj{
     constructor(DB : DBContext, TableName: string){
         this.db = DB; 
         this.tableName = TableName;
-        let result = this.db.execute("SELECT COUNT(*) AS Amount FROM " + TableName);
-        this.id = result[0]["Amount"];
+        //let result = this.db.execute("SELECT COUNT(*) AS Amount FROM " + TableName);
+        //this.id = result[0]["Amount"];
         this.initializeDBParams();
         this.initializeCommands(); 
     }
@@ -35,8 +35,8 @@ export abstract class DBObject implements DALObj{
 
     //A meglévő adatok alapján betölt a DB-ből
     loadFromDB() : boolean{
-        let dbParams : DBParam[];
-        let json : JSON[];
+        let dbParams : DBParam[] = [];
+        let json : JSON[] = [];
         this.DBparams.forEach(element => {
             if(element.value !== null)
                 dbParams[dbParams.length] = element;
@@ -73,7 +73,7 @@ export abstract class DBObject implements DALObj{
     }
 
     private initializeGetManyCommand(table : string, keyValue : DBParam[]){
-        this.getManySql = "SELECT * FROM "+ table + "WHERE ";  
+        this.getManySql = "SELECT * FROM "+ table + " WHERE ";  
         for(var i = 0; i < keyValue.length; i++){
             if(i < keyValue.length - 1){
                 this.getManySql = this.getManySql +  keyValue[i].name + " = " + keyValue[i].value + " AND ";

@@ -29,15 +29,16 @@ var User = /** @class */ (function (_super) {
         _this.permission = Permission;
         _this.firstName = FirstName;
         _this.lastName = LastName;
+        _this.initializeDBParams();
         return _this;
     }
     User.prototype.load = function (json) {
-        this.id = json['ID'];
-        this.username = json['Username'];
-        this.password = json['Password'];
-        this.permission = json['Permission'];
-        this.firstName = json['FirstName'];
-        this.lastName = json['LastName'];
+        this.id = json['ID'].value;
+        this.username = json['Username'].value;
+        this.password = json['Password'].value;
+        this.permission = json['Permission'].value;
+        this.firstName = json['FirstName'].value;
+        this.lastName = json['LastName'].value;
     };
     User.prototype.initializeDBParams = function () {
         this.DBparams = [

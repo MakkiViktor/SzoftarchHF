@@ -18,11 +18,12 @@ export class Test extends DBObject{
         this.creator = Creator;
         this.level = this.level;
         this.loadWords();
+        this.initializeDBParams();
     }
 
     private loadWords(){
         this.getMany("test_words", [{name: "TestID", value : this.id, fk_table : null}]).forEach(element => {
-            this.getMany("Words", [{name : "ID", value : element[0]['WordID'], fk_table : null}]).forEach(element2 => {
+            this.getMany("Words", [{name : "ID", value : element[0]['WordID'].value, fk_table : null}]).forEach(element2 => {
                 this.words[this.words.length] = new Word(this.db);
                 this.words[this.words.length - 1].load(element2);
             });
@@ -30,12 +31,12 @@ export class Test extends DBObject{
     }
 
     load(json: JSON){
-        this.id = json['ID'];
+        this.id = json['ID'].value;
         this.creator = new User(this.db);
-        this.creator.load(this.getMany("users", [{name : "ID", value : json['CreatorID'], fk_table : null}])[0]);
+        this.creator.load(this.getMany("users", [{name : "ID", value : json['CreatorID'].value, fk_table : null}])[0]);
         this.dictionary = new Dictionary(this.db);
-        this.dictionary.load(this.getMany("dictionaries", [{name : "ID", value : json['DictID'], fk_table : null}])[0]);
-        this.level = json['Level'];
+        this.dictionary.load(this.getMany("dictionaries", [{name : "ID", value : json['DictID'].value, fk_table : null}])[0]);
+        this.level = json['Level'].value;
         this.loadWords();
     }
 

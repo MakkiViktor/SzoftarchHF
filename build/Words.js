@@ -25,14 +25,15 @@ var Word = /** @class */ (function (_super) {
         _this.word1 = Word1;
         _this.word2 = Word2;
         _this.dictionary = Dictionary;
+        _this.initializeDBParams();
         return _this;
     }
     Word.prototype.load = function (json) {
-        this.id = json['ID'];
-        this.word1 = json['word1'];
-        this.word2 = json['word2'];
+        this.id = json['ID'].value;
+        this.word1 = json['word1'].value;
+        this.word2 = json['word2'].value;
         this.dictionary = new Dictionary_1.Dictionary(this.db);
-        this.dictionary.load(this.getMany("dictionaries", [{ name: "ID", value: json['DictID'], fk_table: null }])[0]);
+        this.dictionary.load(this.getMany("dictionaries", [{ name: "ID", value: json['DictID'].value, fk_table: null }])[0]);
     };
     Word.prototype.initializeDBParams = function () {
         this.DBparams = [

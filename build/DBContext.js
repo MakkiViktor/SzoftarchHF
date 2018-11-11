@@ -7,7 +7,7 @@ var DBContext = /** @class */ (function () {
         this.connection = mysql.createConnection({
             host: "tudvari.ddns.net:3306",
             user: "viktor",
-            password: "viktor"
+            password: "viktor",
         });
     }
     //Ez atomi
@@ -24,10 +24,12 @@ var DBContext = /** @class */ (function () {
         return fields;
     };
     DBContext.prototype.exception = function (err) {
-        this.connection.rollback();
-        this.connection.end();
-        console.log(err);
-        throw err;
+        if (err) {
+            this.connection.rollback();
+            this.connection.end();
+            console.log(err);
+            throw err;
+        }
     };
     return DBContext;
 }());

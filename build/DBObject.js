@@ -5,15 +5,15 @@ var DBObject = /** @class */ (function () {
     function DBObject(DB, TableName) {
         this.db = DB;
         this.tableName = TableName;
-        var result = this.db.execute("SELECT COUNT(*) AS Amount FROM " + TableName);
-        this.id = result[0]["Amount"];
+        //let result = this.db.execute("SELECT COUNT(*) AS Amount FROM " + TableName);
+        //this.id = result[0]["Amount"];
         this.initializeDBParams();
         this.initializeCommands();
     }
     //A meglévő adatok alapján betölt a DB-ből
     DBObject.prototype.loadFromDB = function () {
-        var dbParams;
-        var json;
+        var dbParams = [];
+        var json = [];
         this.DBparams.forEach(function (element) {
             if (element.value !== null)
                 dbParams[dbParams.length] = element;
@@ -45,7 +45,7 @@ var DBObject = /** @class */ (function () {
         return "(SELECT ID FROM " + table + " WHERE ID = " + id + " )";
     };
     DBObject.prototype.initializeGetManyCommand = function (table, keyValue) {
-        this.getManySql = "SELECT * FROM " + table + "WHERE ";
+        this.getManySql = "SELECT * FROM " + table + " WHERE ";
         for (var i = 0; i < keyValue.length; i++) {
             if (i < keyValue.length - 1) {
                 this.getManySql = this.getManySql + keyValue[i].name + " = " + keyValue[i].value + " AND ";

@@ -26,12 +26,13 @@ var Course = /** @class */ (function (_super) {
         _this.name = Name;
         _this.level = Level;
         _this.loadStudents();
+        _this.initializeDBParams();
         return _this;
     }
     Course.prototype.loadStudents = function () {
         var _this = this;
         this.getMany("user_course", [{ name: "CourseID", value: this.id, fk_table: null }]).forEach(function (element) {
-            _this.getMany("users", [{ name: "ID", value: element[0]['UserID'], fk_table: null }]).forEach(function (element) {
+            _this.getMany("users", [{ name: "ID", value: element[0]['UserID'].value, fk_table: null }]).forEach(function (element) {
                 if (_this.students.length !== 0)
                     _this.students[_this.students.length] = new User_1.User(_this.db);
                 else
@@ -42,11 +43,11 @@ var Course = /** @class */ (function (_super) {
         ;
     };
     Course.prototype.load = function (json) {
-        this.id = json['ID'];
+        this.id = json['ID'].value;
         this.teacher = new User_1.User(this.db);
-        this.teacher.load(this.getMany("users", [{ name: "ID", value: json['TeacherID'], fk_table: null }])[0]);
-        this.name = json['Name'];
-        this.level = json['Level'];
+        this.teacher.load(this.getMany("users", [{ name: "ID", value: json['TeacherID'].value, fk_table: null }])[0]);
+        this.name = json['Name'].value;
+        this.level = json['Level'].value;
         this.loadStudents();
     };
     Course.prototype.initializeDBParams = function () {

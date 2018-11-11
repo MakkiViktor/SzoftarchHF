@@ -13,9 +13,9 @@ export class Dictionary extends DBObject{
     }
 
     load(json: JSON){
-        this.id = json['ID'];
-        this.language1 = json['Lang1'];
-        this.language2 = json['Lang2'];
+        this.id = json['ID'].value;
+        this.language1 = json['Lang1'].value;
+        this.language2 = json['Lang2'].value;
     }
 
     initializeDBParams(){

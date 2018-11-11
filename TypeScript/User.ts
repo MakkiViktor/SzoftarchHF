@@ -12,21 +12,22 @@ export class User extends DBObject{
     
     //TODO:A users tábla talán user
     constructor(DB : DBContext, Username: string = null, Password: string = null, Permission: number = null, FirstName: string = null, LastName: string = null){
-        super(DB, "users");
+        super(DB, "users"); 
         this.username = Username;
         this.password = Password;
         this.permission = Permission;
         this.firstName = FirstName; 
-        this.lastName = LastName;             
+        this.lastName = LastName;
+        this.initializeDBParams();
     }
 
     load(json: JSON){
-        this.id = json['ID'];
-        this.username = json['Username'];
-        this.password = json['Password'];
-        this.permission = json['Permission'];
-        this.firstName = json['FirstName'];
-        this.lastName = json['LastName'];
+        this.id = json['ID'].value;
+        this.username = json['Username'].value;
+        this.password = json['Password'].value;
+        this.permission = json['Permission'].value;
+        this.firstName = json['FirstName'].value;
+        this.lastName = json['LastName'].value;
     }
 
     initializeDBParams(){

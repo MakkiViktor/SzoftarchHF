@@ -11,11 +11,15 @@
   },
   "devDependencies": {
     "browserify": "^16.2.3",
+    "concurrently": "^4.0.1",
+    "http-server": "^0.11.1",
     "watchify": "^3.11.0"
   },
   "scripts": {
     "build": "browserify build/App.js -o JavaScript/bundle.js",
-    "watch": "watchify build/App.js -o JavaScript/bundle.js"
+    "watch": "watchify build/App.js -o JavaScript/bundle.js",
+    "start": "npm run open",
+    "open": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234/\""
   },
   "repository": {
     "type": "git",
