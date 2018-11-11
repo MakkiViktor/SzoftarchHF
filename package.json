@@ -14,8 +14,8 @@
     "watchify": "^3.11.0"
   },
   "scripts": {
-    "build": "browserify build/App.js -o JavaScript/boundle.js",
-    "watch": "watchify build/App.js -o JavaScript/boundle.js"
+    "build": "browserify build/App.js -o JavaScript/bundle.js",
+    "watch": "watchify build/App.js -o JavaScript/bundle.js"
   },
   "repository": {
     "type": "git",
