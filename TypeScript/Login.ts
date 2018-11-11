@@ -1,14 +1,14 @@
 import { User } from "./User";
 import {App} from "./App";
 
-class Login{
+export class Login{
     constructor(){}
 
-    validation() : boolean{
-        let doc : JSON = document.forms['login'];
-        let user : User = new User(App.db, doc['UserName']);
+    validate() : boolean{
+        let doc = document.forms['login'];
+        let user : User = new User(App.db, doc['UserName'].value);
         if(user.loadFromDB()){
-            if(user.password === doc['UserPassword']){
+            if(user.password === doc['UserPassword'].value){
                 App.activeUser = user;
                 return true;
             }
