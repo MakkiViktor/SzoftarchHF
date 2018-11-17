@@ -1,4 +1,4 @@
-var urls = "http://tudvari.ddns.net:3000/login";
+var urls = "http://tudvari.ddns.net:3000/users";
 
 $(document).ready(function(){
     $("#signup").submit(function(event){
