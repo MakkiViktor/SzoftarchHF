@@ -1,4 +1,13 @@
-setHeader = function(){
+
+$(document).ready(function(){
+    $("#addheader").load("../html/header.html")
+    .ready(function(){
+        setHeader();
+    });
+
+});
+
+var setHeader = function(){
     if(getCookie(userNamec) !== ""){
         loggedIn();
     }

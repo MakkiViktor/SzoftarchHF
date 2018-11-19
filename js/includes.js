@@ -6,15 +6,4 @@ $(document).ready(function(){
 	$('head').append("<link rel='stylesheet' type='text/css' media='screen' href='../css/main.css' />");
 	$('head').append("<script src='../js/consts.js'></script>");
 	$('head').append("<script src='../js/cookiesHandler.js'></script>");
-	$('head').append("<script src='../js/header.js'></script>");
 })
-
-var setHeader;
-
-$(document).ready(function(){
-    $("#addheader").load("../html/header.html")
-    .ready(function(){
-        setHeader();
-    });
-
-});
