@@ -8,3 +8,13 @@ $(document).ready(function(){
 	$('head').append("<script src='../js/cookiesHandler.js'></script>");
 	$('head').append("<script src='../js/header.js'></script>");
 })
+
+var setHeader;
+
+$(document).ready(function(){
+    $("#addheader").load("../html/header.html")
+    .ready(function(){
+        setHeader();
+    });
+
+});
