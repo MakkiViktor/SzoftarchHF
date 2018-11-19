@@ -7,13 +7,13 @@
 </head>
 
 <body>
-    <div id = "login">
-        <form name="login">
+    <div>
+        <form id ="login" action="mainPage.html">
             Felhasználó név:                
-            <input type="text" id="UserName" name="UserName" size="20" >
+            <input type="text" id="UserName" name="Username" size="20" >
             <br>
             Jelszó :
-            <input type="password" id="UserPassword" name="UserPassword" size="20">
+            <input type="password" id="Password" name="Password" size="20">
             <br><br>
             <input type="submit" value="Küldés">
         </form>
@@ -23,7 +23,10 @@
         <a href="studentIndex.html">Student Index</a>
         <a href="teacherIndex.html">Teacher Index</a>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/consts.js"></script>
+    <script src="../js/cookiesHandler.js"></script>
     <script src="../js/login.js"></script>
 </body>
 </html>

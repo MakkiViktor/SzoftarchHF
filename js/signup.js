@@ -8,9 +8,14 @@ $(document).ready(function(){
             type : "POST",
             dataType: "json",
             data : formData,
-            success: function(data ) { alert("added" + data); },
-            error: function(data) { alert(JSON.stringify(data)); },
-            complete: function(xhr, status){ alert(status);}
+            success: function(data ) { 
+                alert("Sikeres regisztráció");
+                window.location = loginHtml;
+             },
+            error: function(data) { 
+                Console.console.log(JSON.stringify(data));
+                alert(serverError); 
+            },
         });
         return false;
     })
