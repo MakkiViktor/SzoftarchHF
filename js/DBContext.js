@@ -8,9 +8,9 @@ var getUser = function(userName, handleData){
             handleData(data);
         },
         error: function(jqXHR, textStatus, errorThrown ) { 
-			alert(jqXHR); 
-			alert(textStatus);
-			alert(errorThrown);
+			console.log(jqXHR); 
+			console.log(textStatus);
+			console.log(errorThrown);
 		}
     });
 }
