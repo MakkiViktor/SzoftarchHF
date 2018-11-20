@@ -13,8 +13,8 @@ var setHeader = function(){
 
 var loggedIn = function(){
 
-    $("#navBarRight").append("<li><b>" + getCookie(userNamec) + "</b></li>")
-    $("#navBarRight").append("<li><a href='#' id='signout'>Sign out</a></li>");
+    $("#rightNavBar").append("<li><b>" + getCookie(userNamec) + "</b></li>")
+    $("#rightNavBar").append("<li><a href='#' id='signout'>Sign out</a></li>");
     $("#signout").on("click", function(){
         document.cookie = setCookie(userNamec, "", -1);
         alert("logged out");
@@ -23,6 +23,6 @@ var loggedIn = function(){
 }
 
 var notLoggedIn = function(){
-    $("#navBarRight").append("<li><a href='../html/login.html'>Login</a></li>");
-    $("#navBarRight").append("<li><a href='../html/signup.html'>Signup</a></li>");
+    $("#rightNavBar").append("<li><a href='../html/login.html'>Login</a></li>");
+    $("rightNavBar").append("<li><a href='../html/signup.html'>Signup</a></li>");
 }
