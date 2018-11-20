@@ -1,5 +1,4 @@
-var urls = "http://tudvari.ddns.net:3000/login";
-
+var urls = "http://tudvari.ddns.net:3000/login"; 
 
 $(document).ready(function(){
     $("#login").submit(function(event){
@@ -12,7 +11,7 @@ $(document).ready(function(){
             success: function(data ) {
                 if(data === true){
                     setCookie(userNamec, formData[0]["value"], 90);
-                    window.location = mainPageHtml; 
+                    
                 } else if(data === false){
                     alert("Helytelen felhasználónév, vagy jelszó");
                 } else {
@@ -20,6 +19,12 @@ $(document).ready(function(){
                 }
              },
             error: function(data) { alert(JSON.stringify(data)); },
+        });
+        
+        getUser(getCookie(userNamec), function(user){
+            if(user["Permission"] === 1)
+                window.location = teacherIndexHtml;
+            else window.location = studentIndexHtml;
         });
         return false;
     })
