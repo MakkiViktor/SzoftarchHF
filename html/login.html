@@ -13,23 +13,24 @@
 </head>
 
 <body>
-    <div>
-        <form id ="login" action="mainPage.html">
-            Felhasználó név:                
-            <input type="text" id="UserName" name="Username" size="20" >
-            <br>
-            Jelszó :
-            <input type="password" id="Password" name="Password" size="20">
-            <br><br>
-            <input type="submit" value="Küldés">
-        </form>
-    </div>
-	<button type="button" class="btn btn-primary">Ha ez szép, akkor megy a bootstrap</button>
-    <div>
-        <a href="signup.html">Regisztráció</a>
-        <a href="studentIndex.html">Student Index</a>
-        <a href="teacherIndex.html">Teacher Index</a>
-    </div>
+	<div id="container" class="container">
+		<header>
+			<div id="header"></div>
+		</header>
+		
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Login</h1>
+				<br>
+				<form id ="login" action="mainPage.html">
+					<p>Felhasználó név: <input type="text" id="UserName" name="Username" size="20"></p>
+					<p>Jelszó: <input type="password" id="Password" name="Password" size="20"></p>
+					<p><input type="submit" value="Küldés"></p>
+				</form>
+			</div>
+		</div>
+	</div>
+
     <script src="../js/login.js"></script>
 </body>
 </html>
