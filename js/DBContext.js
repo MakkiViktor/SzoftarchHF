@@ -7,8 +7,10 @@ var getUser = function(userName, handleData){
         success: function(data) {
             handleData(data);
         },
-        error: function(data) { 
-			alert(JSON.stringify(data)); 
+        error: function(jqXHR, textStatus, errorThrown ) { 
+			alert(jqXHR); 
+			alert(textStatus);
+			alert(errorThrown);
 		}
     });
 }
