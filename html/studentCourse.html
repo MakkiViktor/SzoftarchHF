@@ -4,26 +4,94 @@
     <meta charset="utf-8" />
     <title>Student Course</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/includes.js"></script>
+	<script src="../js/header.js"></script>
+	<script src='../js/consts.js'></script>
+	<script src='../js/cookiesHandler.js'></script>
 </head>
 
 <body>
-    Itt az előbb kiválasztott kurzus adatai, kedves diák:<br>
+	<div id="container" class="container">
+		<header>
+			<div id="header"></div>
+		</header>
+		
+		<div class="jumbotron">
+			<div class="container">
+			
+				<table class="table compacttable">
+				  <tbody>
+				  	<tr>
+						<td>Név:</td>
+						<td>XYZ</td>
+					</tr>
+					<tr>
+						<td>Szint:</td>
+						<td>XYZ</td>
+					</tr>
+					<tr>
+						<td>Tanár:</td>
+						<td>XYZ</td>
+					</tr>
+				  </tbody>
+				</table>
+				
+				<p>Ha már rajta van a kurzuson:</p>
+				
+				<table class="table compacttable">
+				  <tbody>
+				  	<tr>
+						<td>Eredmények:</td>
+						<td>20/30p</td>
+					</tr>
+					<tr>
+						<td>Teszt1:</td>
+						<td>10/15p</td>
+					</tr>
+					<tr>
+						<td>Teszt2:</td>
+						<td>10/15p</td>
+					</tr>
+				  </tbody>
+				</table>
+				
+				<table class="table table-hover table-bordered compacttable">
+				  <thead class="thead-light">
+					<tr>
+						<th scope="col">Kitöltendő tesztek</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr class='clickable-row' data-href="../html/takeTest.html">
+						<td>Teszt3 kitöltése</td>
+					</tr>
+					<tr class='clickable-row' data-href="../html/takeTest.html">
+						<td>Teszt4 kitöltése</td>
+					</tr>
+				  </tbody>
+				</table>
+				
+				<a href="#"><button  type="button" class="btn btn-primary">Kurzus leadása</button></a>
+				
+				<p>Ha még nincs rajta:</p>
+				<a href="#"><button  type="button" class="btn btn-primary">Jelentkezés a kurzusra</button></a>
+				
+				
+				</p>Minden esetben jelenjen meg:</p>
+				<a href="../html/studentIndex.html"><button type="button" class="btn btn-primary">Vissza</button></a>
 
-    <br>
-    ----Ha már a kurzuson van:----<br>
+				
+			</div>
+		</div>
+				
+		<footer class="page-footer font-small blue">
+			<div class="footer-copyright text-center py-3">
+				© 2018
+			</div>
+		</footer>
+		
+	</div>
 
-    Eredmények: 20/30p<br>
-    Teszt1: 10/15p<br>
-    Teszt2: 10/15p<br>
-    <br>
-    Kitöltendő tesztek:
-    <a href="takeTest.html">Teszt3 kitöltése</a>
-    <a href="takeTest.html">Teszt4 kitöltése</a>
-
-    <a href="studentIndex.html">Lejelentkezés a kurzusról</a>
-    <br>
-    ----Ha még nincs a kurzuson:----
-    <a href="studentCourse.html">Jelentkezés a kurzusra</a>
 </body>
 </html>

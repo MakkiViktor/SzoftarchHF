@@ -48,3 +48,10 @@ form .btn {
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
 	background-color: #e2f7ff;
 }
+
+.compacttable {
+	margin: 0 auto;
+	width:300px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
