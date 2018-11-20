@@ -17,7 +17,6 @@ var loggedIn = function(){
     $("#rightNavBar").append("<li><a href='#' id='signout'>Kijelentkezés</a></li>");
     $("#signout").on("click", function(){
         document.cookie = setCookie(userNamec, "", -1);
-        alert("logged out");
         location = indexHtml;  
     })
 }
