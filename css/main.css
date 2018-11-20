@@ -10,7 +10,7 @@
     padding: 10px;
 	padding-bottom: 0px;
 	margin-top: 40px;
-	width: 500px;
+	width: 700px;
 }
 
 .jumbotron {
@@ -20,4 +20,17 @@
 form input {
 	float:right;
 	padding-right: 10px;
+}
+
+.table {
+	text-align: center;
+	background-color: #fbfbfb;
+}
+
+.table .thead-light th {
+	background-color: #fbfbfb;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+	background-color: #e2f7ff;
 }

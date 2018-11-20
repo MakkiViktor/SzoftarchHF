@@ -4,31 +4,86 @@
     <meta charset="utf-8" />
     <title>Student Index</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-</head>
-
-<body>
-    <header id = "addheader"></header>
-    <br>
-    Üdv diák! Itt vannak a kurzusaid:
-    <a href="studentCourse.html">Kurzus1</a>
-    <a href="studentCourse.html">Kurzus2</a>
-    <a href="studentCourse.html">Kurzus3</a>
-    <a href="studentCourse.html">Kurzus4</a>
-    <a href="studentCourse.html">Kurzus5</a>
-
-    <br>
-    És ezekre jelentkezhetsz még:
-    <a href="studentCourse.html">Kurzus1</a>
-    <a href="studentCourse.html">Kurzus2</a>
-    <a href="studentCourse.html">Kurzus3</a>
-    <a href="studentCourse.html">Kurzus4</a>
-    <a href="studentCourse.html">Kurzus5</a>
-
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/includes.js"></script>
 	<script src="../js/header.js"></script>
 	<script src='../js/consts.js'></script>
 	<script src='../js/cookiesHandler.js'></script>
+</head>
+
+<body>
+	<div id="container" class="container">
+		<header>
+			<div id="header"></div>
+		</header>
+		
+		<div class="jumbotron">
+			<div class="container">
+			
+				<b><p>Jelenlegi kurzusok:</p></b>
+				<table class="table table-hover table-bordered">
+				  <thead class="thead-light">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Név</th>
+						<th scope="col">Szint</th>
+						<th scope="col">Tanár</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr class='clickable-row' data-href="../html/studentCourse.html">
+						<th scope="row">1</th>
+						<td>Angol 2352</td>
+						<td>Haladó</td>
+						<td>Kovács József</td>
+					</tr>
+					<tr class='clickable-row' data-href="../html/studentCourse.html">
+						<th scope="row">2</th>
+						<td>Német 8827</td>
+						<td>Közép</td>
+						<td>Heinrich Tannhäuser</td>
+					</tr>
+				  </tbody>
+				</table>
+				
+				<br>
+				
+				<b><p>Elérhető kurzusok:</p></b>
+				<table class="table table-hover">
+				  <thead class="thead-light">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Név</th>
+						<th scope="col">Szint</th>
+						<th scope="col">Tanár</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr class='clickable-row' data-href="../html/studentCourse.html">
+						<th scope="row">1</th>
+						<td>Francia 1212</td>
+						<td>Alap</td>
+						<td>Asdasasd Francois</td>
+					</tr>
+					<tr class='clickable-row' data-href="../html/studentCourse.html">
+						<th scope="row">2</th>
+						<td>Német 234</td>
+						<td>Haladó</td>
+						<td>Heinrich Tannhäuser</td>
+					</tr>
+				  </tbody>
+				</table>
+				
+			</div>
+		</div>
+				
+		<footer class="page-footer font-small blue">
+			<div class="footer-copyright text-center py-3">
+				© 2018
+			</div>
+		</footer>
+		
+	</div>
+	
 </body>
 </html>

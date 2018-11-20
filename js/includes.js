@@ -5,4 +5,9 @@ $(document).ready(function(){
 
 	$('head').append("<link rel='stylesheet' type='text/css' media='screen' href='../css/main.css' />");
 
+	
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+
 })

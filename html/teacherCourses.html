@@ -4,19 +4,60 @@
     <meta charset="utf-8" />
     <title>Teacher Courses</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/includes.js"></script>
+	<script src="../js/header.js"></script>
+	<script src='../js/consts.js'></script>
+	<script src='../js/cookiesHandler.js'></script>
 </head>
 
 <body>
-    <br>
-    Üdv tanár! Itt vannak a kurzusaid:
-    <a href="teacherCourse.html">Kurzus1</a>
-    <a href="teacherCourse.html">Kurzus2</a>
+	<div id="container" class="container">
+		<header>
+			<div id="header"></div>
+		</header>
+		
+		<div class="jumbotron">
+			<div class="container">
+			
+				<b><p>Általad tartott kurzusok:</p></b>
+				<table class="table table-hover table-bordered">
+				  <thead class="thead-light">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Név</th>
+						<th scope="col">Szint</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr class='clickable-row' data-href="../html/teacherCourse.html">
+						<th scope="row">1</th>
+						<td>Angol 2352</td>
+						<td>Haladó</td>
+					</tr>
+					<tr class='clickable-row' data-href="../html/teacherCourse.html">
+						<th scope="row">2</th>
+						<td>Német 8827</td>
+						<td>Közép</td>
+					</tr>
+				  </tbody>
+				</table>
+				
+				<a href="../html/createCourse.html"><button  type="button" class="btn btn-primary">Új kurzus</button></a>
+				
+				<a href="../html/teacherIndex.html"><button type="button" class="btn btn-primary">Vissza</button></a>
 
-    <br>
-    <a href="createCourse.html">Új kurzus</a>
-
-    <br>
-    <a href="teacherIndex.html">Vissza</a>
+				
+			</div>
+		</div>
+				
+		<footer class="page-footer font-small blue">
+			<div class="footer-copyright text-center py-3">
+				© 2018
+			</div>
+		</footer>
+		
+	</div>
+	
 </body>
 </html>
