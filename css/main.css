@@ -17,9 +17,19 @@
 	margin-bottom: 0px;
 }
 
+form {
+	margin-left: 125px;
+	margin-right: 125px;
+}
+
 form input {
-	float:right;
+	float: right;
 	padding-right: 10px;
+}
+
+form .btn {
+	float: left;
+	margin-right: 10px;
 }
 
 .table {
