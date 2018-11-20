@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-    $("#addheader").load("../html/header.html")
+    $("#header").load("../html/header.html")
     .ready(function(){
         setHeader();
     });
@@ -15,9 +15,9 @@ var setHeader = function(){
 }
 
 var loggedIn = function(){
-    $("#header").append("<b>" + getCookie(userNamec) + "    </b>")
-    $("#header").append("<button id = \"logoutbtn\"> Log out</button>.");
-    $("#logoutbtn").on("click", function(){
+    $("#navBarRight").append("<li><b>" + getCookie(userNamec) + "</b></li>")
+    $("#navBarRight").append("<li><a href='#' id='signout'>Sign out</a></li>");
+    $("#signout").on("click", function(){
         document.cookie = setCookie(userNamec, "", -1);
         alert("logged out");
         location = indexHtml;  
@@ -25,6 +25,6 @@ var loggedIn = function(){
 }
 
 var notLoggedIn = function(){
-    $("#header").append("<a href = \"../html/login.html\">login     <a/>");
-    $("#header").append("<a href = \"../html/signup.html\">sign up    <a/>");
+    $("#navBarRight").append("<li><a href='../html/login.html'>Login</a></li>");
+    $("#navBarRight").append("<li><a href='../html/signup.html'>Signup</a></li>");
 }
