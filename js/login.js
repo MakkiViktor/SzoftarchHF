@@ -11,6 +11,12 @@ $(document).ready(function(){
             success: function(data ) {
                 if(data === true){
                     setCookie(userNamec, formData[0]["value"], 90);
+					getUser(getCookie(userNamec), function(user){
+						if(user["Permission"] === 1)
+							window.location = teacherIndexHtml;
+						else 
+							window.location = studentIndexHtml;
+					});
                     
                 } else if(data === false){
                     alert("Helytelen felhasználónév, vagy jelszó");
@@ -21,11 +27,7 @@ $(document).ready(function(){
             error: function(data) { alert(JSON.stringify(data)); },
         });
         
-        getUser(getCookie(userNamec), function(user){
-            if(user["Permission"] === 1)
-                window.location = teacherIndexHtml;
-            else window.location = studentIndexHtml;
-        });
-        return false;
+		return false;
+		
     })
 });
