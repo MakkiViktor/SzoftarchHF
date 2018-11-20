@@ -24,5 +24,5 @@ var loggedIn = function(){
 
 var notLoggedIn = function(){
     $("#rightNavBar").append("<li><a href='../html/login.html'>Login</a></li>");
-    $("rightNavBar").append("<li><a href='../html/signup.html'>Signup</a></li>");
+    $("#rightNavBar").append("<li><a href='../html/signup.html'>Signup</a></li>");
 }
