@@ -1,4 +1,3 @@
-var mainPageHtml = "mainPage.html";
 var teacherIndexHtml = "teacherIndex.html";
 var studentIndexHtml = "studentIndex.html";
 var loginHtml = "login.html";
