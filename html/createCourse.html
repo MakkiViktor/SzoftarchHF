@@ -4,19 +4,40 @@
     <meta charset="utf-8" />
     <title>Új Kurzus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/includes.js"></script>
+	<script src="../js/header.js"></script>
+	<script src='../js/consts.js'></script>
+	<script src='../js/cookiesHandler.js'></script>
 </head>
 
 <body>
-        <form name="login" action="mainPage.html" onsubmit="" method="POST">
-            KurzusNév                
-            <input type="text" id="UserName" name="UserName" size="20" >
-            <br>
-            StbStbStbStb
-            <input type="password" id="UserPassword" name="UserPassword" size="20">
-            <br><br>
-            <input type="submit" value="Küldés">
-        </form>
-        <a href="teacherCourses.html">Vissza</a>
+
+	<div id="container" class="container">
+		<header>
+			<div id="header"></div>
+		</header>
+		
+		<div class="jumbotron">
+			<div class="container">	
+				<h1>Új kurzus</h1>
+				<br>			
+				<form name="login" action="../html/teacherCourses.html" onsubmit="" method="POST">
+					<p>Név: <input type="text" id="Name" name="Name" size="20"></p>
+					<p>Szint: <input type="text" id="Level" name="Level" size="20"></p>
+					<p><input class="btn btn-primary" type="submit" value="Létrehozás"></p>
+				</form>
+				<a href="../html/teacherCourses.html"><button type="button" class="btn btn-primary">Vissza</button></a>
+			</div>
+		</div>
+				
+		<footer class="page-footer font-small blue">
+			<div class="footer-copyright text-center py-3">
+				© 2018
+			</div>
+		</footer>
+		
+	</div>
+
 </body>
 </html>
