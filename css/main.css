@@ -17,6 +17,10 @@
 	margin-bottom: 0px;
 }
 
+h1 {
+	text-align: center;
+}
+
 form {
 	margin-left: 125px;
 	margin-right: 125px;
