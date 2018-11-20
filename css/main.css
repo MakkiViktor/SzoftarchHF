@@ -8,8 +8,13 @@
     border: 2px solid #6c757d;
 	border-radius: 5px;
     padding: 10px;
+	padding-bottom: 0px;
 	margin-top: 40px;
 	width: 500px;
+}
+
+.jumbotron {
+	margin-bottom: 0px;
 }
 
 form input {
