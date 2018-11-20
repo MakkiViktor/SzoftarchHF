@@ -4,40 +4,120 @@
     <meta charset="utf-8" />
     <title>Teacher Courses</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/includes.js"></script>
+	<script src="../js/header.js"></script>
+	<script src='../js/consts.js'></script>
+	<script src='../js/cookiesHandler.js'></script>
 </head>
 
 <body>
-    <br>
-    Üdv tanár! itt az előzőleg kiválasztott kurzusod adatai
-    <br>
-    <br>
-    <br>
-    Hallgatók:
-    <a href="teacherCourse.html">XYZ | abszolváltatás | lejelentkeztetés</a>
-    <a href="teacherCourse.html">XYZ | abszolváltatás | lejelentkeztetés</a>
-    <a href="teacherCourse.html">XYZ | abszolváltatás | lejelentkeztetés</a>
 
-    <br>
-    Teszt kiküldése:
-    <a href="teacherCourse.html">itt egy legördülő és egy gomb lesz. Vagy elég a teszt oldalán megjelennie a kiküldésnek?</a>
+<div id="container" class="container">
+		<header>
+			<div id="header"></div>
+		</header>
+		
+		<div class="jumbotron">
+			<div class="container">
+			
+				<table class="table compacttable">
+				  <tbody>
+				  	<tr>
+						<td>Név:</td>
+						<td>XYZ</td>
+					</tr>
+					<tr>
+						<td>Szint:</td>
+						<td>XYZ</td>
+					</tr>
+					<tr>
+						<td>Hallgatók száma:</td>
+						<td>2</td>
+					</tr>
+				  </tbody>
+				</table>
+				
+				<b><p>Hallgatók:</p></b>
+				<table class="table table-bordered">
+				  <thead class="thead-light">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Név</th>
+						<th scope="col"></th>
+						<th scope="col"></th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>Gipsz Jakab</td>
+						<td><a href="#">Abszolváltatás</a></td>
+						<td><a href="#">Lejelentkeztetés</a></td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td>Kovács Elemér</td>
+						<td><a href="#">Abszolváltatás</a></td>
+						<td><a href="#">Lejelentkeztetés</a></td>
+					</tr>
+				  </tbody>
+				</table>
+				
+				<b><p>Teszt kiosztása</p></b>				
+				<form style="margin: 0px;" name="sendTests" action="#" onsubmit="" method="POST">
+					<p><select>
+					  <option value="teszt1ObjectID">Teszt1</option>
+					  <option value="teszt2ObjectID">Teszt2</option>
+					</select></p>
+					<input class="btn btn-primary" type="submit" value="Kiosztás">
+				</form>
+				
+				    <br>
+					<p></p><p>---</p><p>Tesztek megtekintése: ezt még átbeszélni</p><p>---</p><p></p>
+					<br>
+				
+				
+				<b><p>Jelentkezők:</p></b>
+				<table class="table table-bordered">
+				  <thead class="thead-light">
+					<tr>
+						<th scope="col">Név</th>
+						<th scope="col"></th>
+						<th scope="col"></th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr>
+						<td>Sándor Aladár</td>
+						<td><a href="#">Elfogadás</a></td>
+						<td><a href="#">Elutasítás</a></td>
+					</tr>
+					<tr>
+						<td>Jókai Jakab</td>
+						<td><a href="#">Elfogadás</a></td>
+						<td><a href="#">Elutasítás</a></td>
+					</tr>
+				  </tbody>
+				</table>
+				
+				<a href="../html/modifyCourse.html"><button type="button" class="btn btn-primary">Kurzus módosítása</button></a>
+				
+				<a href="#"><button type="button" class="btn btn-primary">Kurzus törlése</button></a>
+				
+				<a href="../html/studentIndex.html"><button type="button" class="btn btn-primary">Vissza</button></a>
 
-    <br>
-    Tesztek megtekintése: ezt még átbeszélni
-    <br>
-    <br>
-    <br>
-    Jelentkezők:
-    <a href="teacherCourse.html">XYZ felvétele</a>
-    <a href="teacherCourse.html">XYZ felvétele</a>
-    <a href="teacherCourse.html">XYZ felvétele</a>
-
-    <br>
-    <a href="modifyCourse.html">Kurzus módosítása</a>
-    <a href="teacherCourses.html">Kurzus törlése</a>
-
-    <br>
-    <a href="teacherCourses.html">Vissza</a>
+				
+			</div>
+		</div>
+				
+		<footer class="page-footer font-small blue">
+			<div class="footer-copyright text-center py-3">
+				© 2018
+			</div>
+		</footer>
+		
+	</div>
 
 </body>
 </html>
