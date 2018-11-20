@@ -2,6 +2,11 @@
 $(document).ready(function(){
     $("#header").load("../html/header.html", "", setHeader);
 
+	$(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+
+	
 });
 
 var setHeader = function(){
