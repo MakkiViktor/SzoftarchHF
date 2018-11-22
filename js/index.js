@@ -1,5 +1,9 @@
 $(document).ready(function(){
     if(getCookie(userNamec) !== "")
-        window.location = "html/" + studentIndexHtml;
-	//TODO: studentHtml vagy teacherHtml a permission alapján, most elég lesz a student.
+        getUser(getCookie(userNamec), function(user){
+            if(user[permissionc] === 1)
+                window.location = teacherIndexHtml;
+            else window.location = studentIndexHtml;
+        });
+	
 })
