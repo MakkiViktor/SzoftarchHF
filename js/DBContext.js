@@ -3,7 +3,7 @@ var getUser = function(userName, handleData){
     $.ajax({
         url: urls + userName,
         type : "GET",
-        dataType: "jsonp",
+        dataType: "json",
         success: function(data) {
             handleData(data);
         },
@@ -13,4 +13,15 @@ var getUser = function(userName, handleData){
 			console.log(errorThrown);
 		}
     });
+}
+
+var authenticate = function(){
+    var userName = getCookie(userNamec);
+    if(userName === "")
+        window.location = noPermissionHtml;
+    getUser(userName, function(user){
+        if(user[permissionc] == 0)
+            window.location = noPermissionHtml;
+    });
+
 }
