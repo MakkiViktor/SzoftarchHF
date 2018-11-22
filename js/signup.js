@@ -13,7 +13,7 @@ $(document).ready(function(){
                 window.location = loginHtml;
              },
             error: function(data) { 
-                Console.console.log(JSON.stringify(data));
+                console.log(JSON.stringify(data));
                 alert(serverError); 
             },
         });
