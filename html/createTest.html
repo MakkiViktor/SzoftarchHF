@@ -33,44 +33,53 @@
 
         <div class="jumbotron">
             <div class="container">
-                <b>
-                    <p>Új teszt készítése</p>
-                </b>
+			
+                <h1>Új teszt létrehozása</h1>
+				
                 <form id="createTest" action="teacherCourse.html">
-                    Teszt Név:
-                    <input type="text" id="Name" name="Name" size="20">
+                    <p>Név:
+                    <input type="text" id="Name" name="Name" size="20"></p>
                     <br><br>
-                    Teszt szint:
-                    <input type="number" id="Level" name="Level">
+                    <p>Szint:
+                    <input type="number" id="Level" name="Level"></p>
                     <br><br>
 
-                    <table class="table table-hover table-bordered">
+                    <table style="width: 500px;" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Szó 1</th>
                                 <th scope="col">Szó 2</th>
                             </tr>
+						</thead>
+						
                         <tbody id="Words">
 
                         </tbody>
-                        </thead>
+
                     </table>
+					
                     <br><br>
-                    <input type="button" id="AddWordBtn" value="+">
-                    <input type="button" id="DelWordBtn" value="-">
+                    <input class="btn btn-primary" type="button" id="AddWordBtn" value="+">
+                    <input class="btn btn-primary" type="button" id="DelWordBtn" value="-">
                     <br><br>
-                    <input type="submit" value="Teszt létrehozása">
+					
+                    <p><input class="btn btn-primary" type="submit" value="Létrehozás"></p>
                 </form>
-                <a href="teacherCourse.html">Vissza</a>
+				
+                <a href="../html/teacherIndex.html"><button type="button" class="btn btn-primary">Vissza</button></a>
+				
             </div>
         </div>
+		
         <footer class="page-footer font-small blue">
             <div class="footer-copyright text-center py-3">
                 © 2018
             </div>
         </footer>
+
     </div>
+	
 </body>
 
 </html>
