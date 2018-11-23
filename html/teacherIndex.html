@@ -15,6 +15,7 @@
 	<script src="../js/DBContext.js"></script>
 	<script>var pagePermission = 1;</script>
 	<script src="../js/authenticate.js"></script>
+	<script src="../js/teacherIndex.js"></script>
 </head>
 
 <body>
@@ -35,19 +36,12 @@
 						<th scope="col">Szint</th>
 					</tr>
 				  </thead>
-				  <tbody>
-					<tr class='clickable-row' data-href="../html/teacherCourse.html">
-						<th scope="row">1</th>
-						<td>Angol 2352</td>
-						<td>Haladó</td>
-					</tr>
-					<tr class='clickable-row' data-href="../html/teacherCourse.html">
-						<th scope="row">2</th>
-						<td>Német 8827</td>
-						<td>Közép</td>
-					</tr>
+				  <tbody id = "Courses">
+
 				  </tbody>
 				</table>
+				<br><br>
+				<input type="button" id="AddCourseBtn" value="Új kurzus létrehozása">
 				
 				<a href="../html/teacherIndex.html"><button type="button" class="btn btn-primary">Vissza</button></a>
 
