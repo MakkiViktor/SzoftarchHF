@@ -15,8 +15,8 @@ var getUser = function(userName, handleData){
     });
 }
 
-var getUserCourses = function(userID, handleData){
-    let urls =  "http://tudvari.ddns.net:3000/usersCourses/";
+var getTeacherCourses = function(userID, handleData){
+    let urls =  "http://tudvari.ddns.net:3000/teachersCourses/";
     $.ajax({
         url: urls + userID,
         type : "GET",

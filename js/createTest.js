@@ -4,6 +4,10 @@ $(document).ready(function () {
     authenticate();
     $("#createTest").submit(function () {
         var formData = $(this).serializeArray();
+        if(rows === 0){
+            alert("Nincs szópár");
+            return false;
+        }
         getUser(getCookie(userNamec), function (user) {
             formData[formData.length] = {
                 name: "_Creator",
