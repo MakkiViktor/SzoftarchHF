@@ -23,5 +23,10 @@ var authenticate = function(){
         if(user[permissionc] !== pagePermission)
             window.location = noPermissionHtml;
     });
+}
 
+var alreadyLoggedIn = function(){
+    var userName = getCookie(userNamec);
+    if(userName !== "")
+        window.location = noPermissionHtml;
 }
