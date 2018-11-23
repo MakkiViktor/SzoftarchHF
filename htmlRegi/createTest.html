@@ -1,0 +1,74 @@
+<!doctype <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Új Teszt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49'
+        crossorigin='anonymous'></script>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO'
+        crossorigin='anonymous'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js' integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy'
+        crossorigin='anonymous'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/main.css' />
+    <script src="../js/header.js"></script>
+    <script src='../js/consts.js'></script>
+    <script src='../js/cookiesHandler.js'></script>
+    <script src="../js/DBContext.js"></script>
+    <script src="../js/createTest.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div id="header"></div>
+        </header>
+
+        <div class="jumbotron">
+            <div class="container">
+                <b>
+                    <p>Új teszt készítése</p>
+                </b>
+                <form id="createTest" action="teacherTests.html">
+                    Teszt Név:
+                    <input type="text" id="Name" name="Name" size="20">
+                    <br><br>
+                    Teszt szint:
+                    <input type="number" id="Level" name="Level">
+                    <br><br>
+
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Szó 1</th>
+                                <th scope="col">Szó 2</th>
+                            </tr>
+                        <tbody id="Words">
+
+                        </tbody>
+                        </thead>
+                    </table>
+                    <br><br>
+                    <input type="button" id="AddWordBtn" value="+">
+                    <input type="button" id="DelWordBtn" value="-">
+                    <br><br>
+                    <input type="submit" value="Teszt létrehozása">
+                </form>
+                <a href="teacherTests.html">Vissza</a>
+            </div>
+        </div>
+        <footer class="page-footer font-small blue">
+            <div class="footer-copyright text-center py-3">
+                © 2018
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -2,7 +2,7 @@
 <html >
 <head>
     <meta charset="utf-8" />
-    <title>Teacher Index</title>
+    <title>Regisztráció</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49' crossorigin='anonymous'></script>
@@ -12,8 +12,6 @@
 	<script src="../js/header.js"></script>
 	<script src='../js/consts.js'></script>
 	<script src='../js/cookiesHandler.js'></script>
-	<script src="../js/DBContext.js"></script>
-	<script src="../js/teacherIndex.js"></script>
 </head>
 
 <body>
@@ -24,36 +22,20 @@
 		
 		<div class="jumbotron">
 			<div class="container">
-			
-				<b><p>Általad tartott kurzusok:</p></b>
-				<table class="table table-hover table-bordered">
-				  <thead class="thead-light">
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Név</th>
-						<th scope="col">Szint</th>
-					</tr>
-				  </thead>
-				  <tbody>
-					<tr class='clickable-row' data-href="../html/teacherCourse.html">
-						<th scope="row">1</th>
-						<td>Angol 2352</td>
-						<td>Haladó</td>
-					</tr>
-					<tr class='clickable-row' data-href="../html/teacherCourse.html">
-						<th scope="row">2</th>
-						<td>Német 8827</td>
-						<td>Közép</td>
-					</tr>
-				  </tbody>
-				</table>
-				
-				<a href="../html/teacherIndex.html"><button type="button" class="btn btn-primary">Vissza</button></a>
-
-				
+				<h1>Regisztráció</h1>
+				<br>
+				<p id="response"></p>
+				<form id="signup" action="mainPage.html">
+					<p>Felhasználói név: <input type="text" id="username" name="Username" size="20"></p>
+					<p>Keresztnév: <input type="text" id="firstname" name="FirstName" size="20"></p>
+					<p>Családnév: <input type="text" id="lastname" name="LastName" size="20"></p>
+					<p>Jelszó: <input type="password" id="password" name="Password" size="20"></p>
+					<p>Jogok: <input style="float:none" type="radio" name="Permission" value="1"> Tanár <input style="float:none" type="radio" name="Permission" value="0"> Hallgató</p>
+					<p><input class="btn btn-primary" type="submit" value="Regisztráció"></p>
+				</form>
 			</div>
 		</div>
-				
+		
 		<footer class="page-footer font-small blue">
 			<div class="footer-copyright text-center py-3">
 				© 2018
@@ -61,6 +43,8 @@
 		</footer>
 		
 	</div>
+
+    <script src="../js/signup.js"></script>
 	
 </body>
 </html>

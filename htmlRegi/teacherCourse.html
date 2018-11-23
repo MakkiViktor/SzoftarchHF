@@ -47,35 +47,66 @@
 					<tr>
 						<th scope="col">#</th>
 						<th scope="col">Név</th>
-						<th scope="col">Pontok</th>
+						<th scope="col"></th>
+						<th scope="col"></th>
 					</tr>
 				  </thead>
 				  <tbody>
 					<tr>
 						<th scope="row">1</th>
 						<td>Gipsz Jakab</td>
-						<td><a href="#">23</a></td>
+						<td><a href="#">Abszolváltatás</a></td>
+						<td><a href="#">Lejelentkeztetés</a></td>
 					</tr>
 					<tr>
 						<th scope="row">2</th>
 						<td>Kovács Elemér</td>
-						<td><a href="#">11</a></td>
+						<td><a href="#">Abszolváltatás</a></td>
+						<td><a href="#">Lejelentkeztetés</a></td>
 					</tr>
 				  </tbody>
 				</table>
 				
-				<b><p>Teszt hozzáadása a kurzushoz</p></b>				
+				<b><p>Teszt kiosztása</p></b>				
 				<form style="margin: 0px;" name="sendTests" action="#" onsubmit="" method="POST">
 					<p><select>
 					  <option value="teszt1ObjectID">Teszt1</option>
 					  <option value="teszt2ObjectID">Teszt2</option>
 					</select></p>
-					<input class="btn btn-primary" type="submit" value="Teszt Hozzáadása">
+					<input class="btn btn-primary" type="submit" value="Kiosztás">
 				</form>
 				
-				<p></p>
+				    <br>
+					<p></p><p>---</p><p>Tesztek megtekintése: ezt még átbeszélni</p><p>---</p><p></p>
+					<br>
 				
-				<a href="../html/createTest.html"><button type="button" class="btn btn-primary">Új Teszt</button></a>
+				
+				<b><p>Jelentkezők:</p></b>
+				<table class="table table-bordered">
+				  <thead class="thead-light">
+					<tr>
+						<th scope="col">Név</th>
+						<th scope="col"></th>
+						<th scope="col"></th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr>
+						<td>Sándor Aladár</td>
+						<td><a href="#">Elfogadás</a></td>
+						<td><a href="#">Elutasítás</a></td>
+					</tr>
+					<tr>
+						<td>Jókai Jakab</td>
+						<td><a href="#">Elfogadás</a></td>
+						<td><a href="#">Elutasítás</a></td>
+					</tr>
+				  </tbody>
+				</table>
+				
+				<a href="../html/modifyCourse.html"><button type="button" class="btn btn-primary">Kurzus módosítása</button></a>
+				
+				<a href="#"><button type="button" class="btn btn-primary">Kurzus törlése</button></a>
 				
 				<a href="../html/teacherCourses.html"><button type="button" class="btn btn-primary">Vissza</button></a>
 
