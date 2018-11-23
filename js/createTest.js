@@ -7,7 +7,7 @@ $(document).ready(function () {
         getUser(getCookie(userNamec), function (user) {
             formData[formData.length] = {
                 name: "_Creator",
-                value: user["ID"],
+                value: user["_id"],
             }
             $.ajax({
                 url: urls,
