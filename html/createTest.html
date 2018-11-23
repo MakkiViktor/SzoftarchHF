@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="container" class="container" style="width:800px">
         <header>
             <div id="header"></div>
         </header>
@@ -41,10 +41,10 @@
                     <input type="text" id="Name" name="Name" size="20"></p>
                     <br><br>
                     <p>Szint:
-                    <input type="number" id="Level" name="Level"></p>
+                    <input type="text" id="Level" name="Level"></p>
                     <br><br>
 
-                    <table style="width: 500px;" class="table table-bordered">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -60,10 +60,8 @@
                     </table>
 					
                     <br><br>
-                    <input class="btn btn-primary" type="button" id="AddWordBtn" value="Hozzáad">
-                    <input class="btn btn-primary" type="button" id="DelWordBtn" value="Törlés">
-                    <br><br>
-					
+                    <input style="float:right;width:40px;" class="btn btn-primary" type="button" id="AddWordBtn" value="+">
+                    <input style="float:right;width:40px;" class="btn btn-primary" type="button" id="DelWordBtn" value="-">
                     <input class="btn btn-primary" type="submit" value="Létrehozás">
                 </form>
 				
