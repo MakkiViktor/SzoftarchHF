@@ -5,15 +5,15 @@ function setCookie(cname, cvalue, exmins) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function setCookies(cnames, cvalues, exmins){
+function setCookies(nameVal, exmins){
     var d = new Date();
     d.setTime(d.getTime() + (exmins * 60 * 1000));
     var expires = "expires="+d.toUTCString();
     var cookiestr = "";
-    for (var i = 0; i < cnames.length; i++){
-        cookiestr = cookiestr +  cnames[i] + "=" + cvalues[i] + ";"
+    for (var i = 0; i < nameVal.length; i++){
+        cookiestr = cookiestr +  nameVal[i]["name"] + "=" + nameVal[i]["value"] + ";"
     }
-    document.cookie = cookiestr + + expires + ";path=/";
+    document.cookie = cookiestr + expires + ";path=/";
 }
 
 function getCookie(cname) {
