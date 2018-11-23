@@ -32,6 +32,23 @@ var getCourse = function(courseID, handleData){
     });
 }
 
+var getCourseUsers = function(courseID, handleData){
+    let urls =  "http://tudvari.ddns.net:3000/usersCourses/";
+    $.ajax({
+        url: urls + userID,
+        type : "GET",
+        dataType: "json",
+        success: function(data) {
+            handleData(data);
+        },
+        error: function(jqXHR, textStatus, errorThrown ) { 
+			console.log(jqXHR); 
+			console.log(textStatus);
+			console.log(errorThrown);
+		}
+    });
+}
+
 var getTeacherCourses = function(userID, handleData){
     let urls =  "http://tudvari.ddns.net:3000/teachersCourses/";
     $.ajax({
@@ -50,7 +67,7 @@ var getTeacherCourses = function(userID, handleData){
 }
 
 function isUserAllowed(userName, pageName, handleData) {
-	let urls =  "http://tudvari.ddns.net:3000/permission/";
+	let urls = "http://tudvari.ddns.net:3000/permission/";
     $.ajax({
         url: urls + userName + "/" + pageName,
         type : "GET",
