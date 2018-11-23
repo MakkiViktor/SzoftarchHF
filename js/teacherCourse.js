@@ -1,3 +1,9 @@
 $(document).ready(function(){
-    $("#CourseName").val(getCookie(courseIdc));
+    getCourse(getCookie(courseIDc), function(data){
+        $("#CourseName").val(data["Name"]);
+        $("#CourseLevel").val(data["Level"]);
+        getCourseUsers(getCookie(courseIDc), function(data){
+            
+        });
+    });
 })
