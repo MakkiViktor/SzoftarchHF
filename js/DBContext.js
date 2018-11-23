@@ -20,7 +20,7 @@ var authenticate = function(){
     if(userName === "")
         window.location = noPermissionHtml;
     getUser(userName, function(user){
-        if(user[permissionc] == 0)
+        if(user[permissionc] !== pagePermission)
             window.location = noPermissionHtml;
     });
 
