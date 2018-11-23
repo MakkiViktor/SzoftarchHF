@@ -29,16 +29,16 @@
 				<table class="table compacttable">
 				  <tbody>
 				  	<tr>
-						<td>Név:</td>
-						<td>XYZ</td>
+						<td >Név:</td>
+						<td id = "CourseName">XYZ</td>
 					</tr>
 					<tr>
 						<td>Szint:</td>
-						<td>XYZ</td>
+						<td id = "CourseLevel">XYZ</td>
 					</tr>
 					<tr>
 						<td>Hallgatók száma:</td>
-						<td>2</td>
+						<td id="StundentNumber">2</td>
 					</tr>
 				  </tbody>
 				</table>
@@ -52,7 +52,7 @@
 						<th scope="col">Pontok</th>
 					</tr>
 				  </thead>
-				  <tbody>
+				  <tbody id = "Students">
 					<tr>
 						<th scope="row">1</th>
 						<td>Gipsz Jakab</td>
@@ -69,7 +69,7 @@
 				<b><p>Teszt hozzáadása a kurzushoz</p></b>				
 				<form style="margin: 0px;" name="sendTests" action="#" onsubmit="" method="POST">
 					<p><select id="tests">
-					  <option value="teszt1ObjectID">Teszt1</option>
+					  <option vnalue="teszt1ObjectID">Teszt1</option>
 					  <option value="teszt2ObjectID">Teszt2</option>
 					</select></p>
 					<input class="btn btn-primary" type="submit" value="Teszt Hozzáadása">

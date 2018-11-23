@@ -15,6 +15,23 @@ var getUser = function(userName, handleData){
     });
 }
 
+var getCourse = function(courseID, handleData){
+    let urls = "http://tudvari.ddns.net:3000/courses/";
+    $.ajax({
+        url: urls + courseID,
+        type : "GET",
+        dataType: "json",
+        success: function(data) {
+            handleData(data);
+        },
+        error: function(jqXHR, textStatus, errorThrown ) { 
+			console.log(jqXHR); 
+			console.log(textStatus);
+			console.log(errorThrown);
+		}
+    });
+}
+
 var getTeacherCourses = function(userID, handleData){
     let urls =  "http://tudvari.ddns.net:3000/teachersCourses/";
     $.ajax({

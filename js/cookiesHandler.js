@@ -3,7 +3,17 @@ function setCookie(cname, cvalue, exmins) {
     d.setTime(d.getTime() + (exmins * 60 * 1000));
     var expires = "expires="+d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    console.log(document.cookie);
+}
+
+function setCookies(cnames, cvalues, exmins){
+    var d = new Date();
+    d.setTime(d.getTime() + (exmins * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    var cookiestr = "";
+    for (var i = 0; i < cnames.length; i++){
+        cookiestr = cookiestr +  cnames[i] + "=" + cvalues[i] + ";"
+    }
+    document.cookie = cookiestr + + expires + ";path=/";
 }
 
 function getCookie(cname) {
