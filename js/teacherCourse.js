@@ -1,10 +1,10 @@
 var urls = "http://tudvari.ddns.net:3000/coursesTests";
-var coureseTests;
+var courseTests;
 
 $(document).ready(function(){
 
     getCourseTests(getCookie(courseIDc), function(tests){
-        coureseTests = tests;
+        courseTests = tests;
     })
 
     getCourse(getCookie(courseIDc), function(data){
@@ -20,9 +20,9 @@ $(document).ready(function(){
                                 if(courseTests[ct]["_Test"] === userTests[j]["_Test"])
                                 sumPoint += userTests[j]["Result"];
                             }                                                  
-                        }
-                        $("#Students").append("<tr><th scope='row'>"+ (rows + 1) + "</th><td>"+ users[rows]["FirstName"] + " " + users[rows]["LastName"] +"</td><td><a href='#'>"+ sumPoint + "</a></td></tr>");    
+                        }                            
                 });
+               addCourseUser(row, users, sumPoint);
             }
         });
     });
@@ -31,7 +31,7 @@ $(document).ready(function(){
         let rows = 1;
         for(var i = 0; i < tests.length; i++){
             $("#tests").append("<option id = '" + tests[i]["_id"] + "' value='"+ tests[i]["Name"] +"'>");
-            coureseTests.forEach(element => {
+            courseTests.forEach(element => {
                 if(tests[i]["_id"] === element["_Test"]){
                     $("#CourseTests").append("<tr><th scope='row'>"+ rows + "</th><td>"+ tests[i]["Name"] + "</td><td>"+ tests[i]["Level"] + "</td></tr>");     
                     rows++;
@@ -75,3 +75,7 @@ $(document).ready(function(){
 
 
 });
+
+var addCourseUser = function(rows, users, sumPoint){
+    $("#Students").append("<tr><th scope='row'>"+ (rows + 1) + "</th><td>"+ users[rows]["FirstName"] + " " + users[rows]["LastName"] +"</td><td><a href='#'>"+ sumPoint + "</a></td></tr>");
+}
