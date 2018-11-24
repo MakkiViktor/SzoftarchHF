@@ -82,6 +82,24 @@ var getTest = function(testID, handleData){
 		}
     });
 }
+
+var getTestWordPairs = function(testID, handleData){
+    let urls = "http://tudvari.ddns.net:3000/wordPairs/";
+    $.ajax({
+        url: urls + testID,
+        type : "GET",
+        dataType: "json",
+        success: function(data) {
+            handleData(data);
+        },
+        error: function(jqXHR, textStatus, errorThrown ) { 
+			console.log(jqXHR); 
+			console.log(textStatus);
+			console.log(errorThrown);
+		}
+    });
+}
+
 var getCourses = function(handleData){
     let urls = "http://tudvari.ddns.net:3000/courses";
     $.ajax({
