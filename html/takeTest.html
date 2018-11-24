@@ -16,11 +16,11 @@
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js' integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy'
         crossorigin='anonymous'></script>
     <link rel='stylesheet' type='text/css' media='screen' href='../css/main.css' />
-    <script src="../js/header.js"></script>
     <script src='../js/consts.js'></script>
     <script src='../js/cookiesHandler.js'></script>
     <script src="../js/DBContext.js"></script>
-	<script src="../js/authenticate.js"></script>
+    <script src="../js/authenticate.js"></script>
+    <script src="../js/takeTest.js"></script>
 </head>
 
 <body>
@@ -33,39 +33,27 @@
             <div class="container">
 			
                <b><p style="text-align: center">Teszt kitöltése</p></b>
-			   
+			   <p id = "Timer">time</p>
 			   <table class="table compacttable">
 				  <tbody>
 				  	<tr>
 						<td>Név:</td>
-						<td>XYZ</td>
+						<td id = "TestName"></td>
 					</tr>
 					<tr>
 						<td>Szint:</td>
-						<td>XYZ</td>
+						<td id = "TestLevel"></td>
 					</tr>
 				  </tbody>
 				</table>
-			   
+			<form action="studentCourse.html" id="TestForm">
 				<table class="table table-bordered">
-				  <tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Szó1</td>
-						<td><input type="text" id="word1" name="word1" size="20"></td>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Szó2</td>
-						<td><input type="text" id="word1" name="word2" size="20"></td>
-					</tr>
+				  <tbody id = "TestWords">
+
 				  </tbody>
 				</table>
-				<p><input class="btn btn-primary" type="submit" value="Küldés"></p>
-				
-				
-				<a href="../html/studentCourse.html"><button type="button" class="btn btn-primary">Vissza</button></a>
-				
+				<p><input  class="btn btn-primary" type="submit" value="Küldés"></p>			
+            </form>
             </div>
         </div>
         <footer class="page-footer font-small blue">
