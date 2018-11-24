@@ -5,16 +5,6 @@ function setCookie(cname, cvalue, exmins) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function setCookies(nameVal, exmins){
-    var d = new Date();
-    d.setTime(d.getTime() + (exmins * 60 * 1000));
-    var expires = "expires="+d.toUTCString();
-    var cookiestr = "";
-    for (var i = 0; i < nameVal.length; i++){
-        cookiestr = cookiestr +  nameVal[i]["name"] + "=" + nameVal[i]["value"] + ";"
-    }
-    document.cookie = cookiestr + expires + ";path=/";
-}
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -29,4 +19,8 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+
+var deleteCookies = function(name){
+    document.cookie = name + "=;expires=Thu, 18 Dec 2013 12:00:00 UTC;path/"
 }
