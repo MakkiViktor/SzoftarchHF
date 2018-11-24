@@ -82,6 +82,22 @@ var getTest = function(testID, handleData){
 		}
     });
 }
+var getCourses = function(handleData){
+    let urls = "http://tudvari.ddns.net:3000/courses";
+    $.ajax({
+        url: urls,
+        type : "GET",
+        dataType: "json",
+        success: function(data) {
+            handleData(data);
+        },
+        error: function(jqXHR, textStatus, errorThrown ) { 
+			console.log(jqXHR); 
+			console.log(textStatus);
+			console.log(errorThrown);
+		}
+    });
+}
 
 var getCourse = function(courseID, handleData){
     let urls = "http://tudvari.ddns.net:3000/courses/";
