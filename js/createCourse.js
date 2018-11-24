@@ -15,15 +15,8 @@ $(document).ready(function () {
                 dataType: "json",
                 data: formData,
                 success: function (data) { 
-                    alert("Teszt létrehozva: " + data[1]) 
-                    setCookies([{
-                        name: userNamec,
-                        value: user[userNamec]
-                    },
-                    {
-                        name: courseIDc,
-                        value: data["_id"]
-                    }], 90);
+                    alert("Teszt létrehozva: " + data["Name"]); 
+                    setCookie(courseIDc, data["_id"], 90);
                     window.location = teacherCourseHtml;
                 },
                 error: function (data) { console.log(JSON.stringify(data)); },
