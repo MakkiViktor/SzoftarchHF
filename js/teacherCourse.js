@@ -41,7 +41,7 @@ $(document).ready(function(){
     });
     
     $("#addTest").submit(function(){
-        let testID; //ezt ki kell szedni valahogy
+        let testID; 
         $("#tests option").each(function(){
             if($(this).val() === $("#_Test").val()){
                 testID = $(this).attr("id");
@@ -60,13 +60,10 @@ $(document).ready(function(){
             type : "POST",
             dataType: "json",
             data : formData,
-            success: function(data) {
-                let rows = $("#CourseTests tr").length + 1; 
-                //TODO:  ezt javítani kell, vagy hogy ne legyen lekérdezés, és a post kapá
-                getTest(data["_Test"], function(test){
-                    $("#CourseTests").append("<tr><th scope='row'>"+ rows + "</th><td>"+ test["Name"] + "</td><td>"+ test["Level"] + "</td></tr>");
-                });
-                alert("Sikeresen hozzá lett adva a teszt");
+            success: function(test) {
+                let rows = $("#CourseTests tr").length + 1;
+                $("#CourseTests").append("<tr><th scope='row'>"+ rows + "</th><td>"+ test["Name"] + "</td><td>"+ test["Level"] + "</td></tr>");
+                //alert("Sikeresen hozzá lett adva a teszt");
              },
             error: function(data) { 
                 console.log(JSON.stringify(data));
