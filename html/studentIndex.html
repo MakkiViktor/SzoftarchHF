@@ -12,7 +12,9 @@
 	<script src="../js/header.js"></script>
 	<script src='../js/consts.js'></script>
 	<script src='../js/cookiesHandler.js'></script>
+	<script src="../js/DBContext.js"></script>
 	<script src="../js/authenticate.js"></script>
+	<script src="../js/studentIndex.js"></script>
 </head>
 
 <body>
@@ -34,19 +36,7 @@
 						<th scope="col">Tanár</th>
 					</tr>
 				  </thead>
-				  <tbody>
-					<tr class='clickable-row' data-href="../html/studentCourse.html">
-						<th scope="row">1</th>
-						<td>Angol 2352</td>
-						<td>Haladó</td>
-						<td>Kovács József</td>
-					</tr>
-					<tr class='clickable-row' data-href="../html/studentCourse.html">
-						<th scope="row">2</th>
-						<td>Német 8827</td>
-						<td>Közép</td>
-						<td>Heinrich Tannhäuser</td>
-					</tr>
+				  <tbody id = "StudentCourses">
 				  </tbody>
 				</table>
 				
@@ -62,19 +52,7 @@
 						<th scope="col">Tanár</th>
 					</tr>
 				  </thead>
-				  <tbody>
-					<tr class='clickable-row' data-href="../html/studentCourse.html">
-						<th scope="row">1</th>
-						<td>Francia 1212</td>
-						<td>Alap</td>
-						<td>Asdasasd Francois</td>
-					</tr>
-					<tr class='clickable-row' data-href="../html/studentCourse.html">
-						<th scope="row">2</th>
-						<td>Német 234</td>
-						<td>Haladó</td>
-						<td>Heinrich Tannhäuser</td>
-					</tr>
+				  <tbody id = "AllCourses">
 				  </tbody>
 				</table>
 				
