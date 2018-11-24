@@ -9,9 +9,10 @@ $(document).ready(function(){
             dataType: "json",
             data : formData,
             success: function(data ) {
-                if(data === true){
-                    setCookie(userNamec, formData[0]["value"], 90);
-					getUser(getCookie(userNamec), function(user){
+                if(data === true){ 
+					getUser(formData[0]["value"], function(user){
+                        setCookie(userNamec, user["Username"], 90);
+                        setCookie(userIDc, user["_id"], 90);
 						if(user["Permission"] === 1)
 							window.location = teacherIndexHtml;
 						else 
