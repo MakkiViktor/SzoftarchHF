@@ -26,7 +26,7 @@ $(document).ready(function () {
     });
     $("#AddWordBtn").on("click", function () {
         rows++;
-        $("#Words").append("<tr id = 'Word" + rows + "'><th scope='row'>" + rows + "</th><td><input type='text' value='' name='Word1'></td><td><input type='text' value='' name='Word2'></td></tr>");
+        $("#Words").append("<tr id = 'Word" + rows + "'><th scope='row'>" + rows + "</th><td><input type='text' value='' name='Word1' required></td><td><input type='text' value='' name='Word2' required></td></tr>");
     });
     $("#DelWordBtn").on("click", function () {
         $("#Word" + rows).first().remove();

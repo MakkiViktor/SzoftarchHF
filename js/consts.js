@@ -12,5 +12,4 @@ var courseIDc = "CourseId";
 var testIDc = "TestID";
 var permissionc = "Permission";
 var errorc = "Error";
-
 var serverError = "server hiba";

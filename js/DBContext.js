@@ -1,229 +1,204 @@
-var getUser = function(userName, handleData){
-    let urls =  "http://tudvari.ddns.net:3000/users/";
+var getUser = function (userName, handleData) {
+    let urls = "http://tudvari.ddns.net:3000/users/";
     $.ajax({
         url: urls + userName,
-        type : "GET",
+        type: "GET",
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
             handleData(data);
         },
-        error: function(jqXHR, textStatus, errorThrown ) { 
-			console.log(jqXHR); 
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
 }
 
-var getCourseTests = function(courseID, handleData){
+var getCourseTests = function (courseID, handleData) {
     let urls = "http://tudvari.ddns.net:3000/coursesTests/";
     $.ajax({
         url: urls + courseID,
-        type : "GET",
+        type: "GET",
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
             handleData(data);
         },
-        error: function(jqXHR, textStatus, errorThrown ) { 
-			console.log(jqXHR); 
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
 }
 
-var getConcreteTests = function(userID, handleData){
+var getConcreteTests = function (userID, handleData) {
     let urls = "http://tudvari.ddns.net:3000/concreteTests/";
     $.ajax({
         url: urls + userID,
-        type : "GET",
+        type: "GET",
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
             handleData(data);
         },
-        error: function(jqXHR, textStatus, errorThrown ) { 
-			console.log(jqXHR); 
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
 }
 
-var getTests = function(handleData){
+var getTests = function (handleData) {
     let urls = "http://tudvari.ddns.net:3000/tests";
     $.ajax({
         url: urls,
-        type : "GET",
+        type: "GET",
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
             handleData(data);
         },
-        error: function(jqXHR, textStatus, errorThrown ) { 
-			console.log(jqXHR); 
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
 }
 
-var getTest = function(testID, handleData){
+var getTest = function (testID, handleData) {
     let urls = "http://tudvari.ddns.net:3000/tests/";
     $.ajax({
         url: urls + testID,
-        type : "GET",
+        type: "GET",
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
             handleData(data);
         },
-        error: function(jqXHR, textStatus, errorThrown ) { 
-			console.log(jqXHR); 
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
 }
 
-var getTestWordPairs = function(testID, handleData){
+var getTestWordPairs = function (testID, handleData) {
     let urls = "http://tudvari.ddns.net:3000/wordPairs/";
     $.ajax({
         url: urls + testID,
-        type : "GET",
+        type: "GET",
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
             handleData(data);
         },
-        error: function(jqXHR, textStatus, errorThrown ) { 
-			console.log(jqXHR); 
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
 }
 
-var getCourses = function(handleData){
+var getCourses = function (handleData) {
     let urls = "http://tudvari.ddns.net:3000/courses";
     $.ajax({
         url: urls,
-        type : "GET",
+        type: "GET",
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
             handleData(data);
         },
-        error: function(jqXHR, textStatus, errorThrown ) { 
-			console.log(jqXHR); 
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
 }
 
-var getCourse = function(courseID, handleData){
+var getCourse = function (courseID, handleData) {
     let urls = "http://tudvari.ddns.net:3000/courses/";
     $.ajax({
-        url: urls+ courseID,
-        type : "GET",
+        url: urls + courseID,
+        type: "GET",
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
             handleData(data);
         },
-        error: function(jqXHR, textStatus, errorThrown ) { 
-			console.log(jqXHR); 
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
 }
 
-var getCourseUsers = function(courseID, handleData){
+var getCourseUsers = function (courseID, handleData) {
     let urls = "http://tudvari.ddns.net:3000/coursesUsers/";
     $.ajax({
         url: urls + courseID,
-        type : "GET",
+        type: "GET",
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
             handleData(data);
         },
-        error: function(jqXHR, textStatus, errorThrown ) { 
-			console.log(jqXHR); 
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
 }
 
-var getUsersCourse = function(userID, handleData){
+var getUsersCourse = function (userID, handleData) {
     let urls = "http://tudvari.ddns.net:3000/usersCourses/";
     $.ajax({
         url: urls + userID,
-        type : "GET",
+        type: "GET",
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
             handleData(data);
         },
-        error: function(jqXHR, textStatus, errorThrown ) { 
-			console.log(jqXHR); 
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
 }
 
-var getTeacherCourses = function(userID, handleData){
-    let urls =  "http://tudvari.ddns.net:3000/teachersCourses/";
+var getTeacherCourses = function (userID, handleData) {
+    let urls = "http://tudvari.ddns.net:3000/teachersCourses/";
     $.ajax({
         url: urls + userID,
-        type : "GET",
+        type: "GET",
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
             handleData(data);
         },
-        error: function(jqXHR, textStatus, errorThrown ) { 
-			console.log(jqXHR); 
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
 }
 
 function isUserAllowed(userName, pageName, handleData) {
-	let urls = "http://tudvari.ddns.net:3000/permission/";
+    let urls = "http://tudvari.ddns.net:3000/permission/";
     $.ajax({
         url: urls + userName + "/" + pageName,
-        type : "GET",
+        type: "GET",
         dataType: "json",
-        success: function(data) {
+        success: function (data) {
             handleData(data);
         },
-        error: function(jqXHR, textStatus, errorThrown ) { 
-			console.log(jqXHR); 
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
-    });
-	
-}
-
-var authenticate = function(){
-    var userName = getCookie(userNamec);
-    if(userName === "")
-        window.location = noPermissionHtml;
-	
-	let pageName = getPageName();
-    isUserAllowed(userName, pageName, function(isAllowed){
-        if(!isAllowed)
-            window.location = noPermissionHtml;
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
     });
 }
 
-var getPageName = function() {
-	var path = window.location.pathname;
-	var fileName = path.split("/").pop();
-	var pageName = fileName.split(".")[0];
-	return pageName;
-}
-
-var alreadyLoggedIn = function(){
-    var userName = getCookie(userNamec);
-    if(userName !== "")
-        window.location = noPermissionHtml;
-}

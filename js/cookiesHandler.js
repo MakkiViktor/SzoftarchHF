@@ -22,5 +22,5 @@ function getCookie(cname) {
 }
 
 var deleteCookies = function(name){
-    document.cookie = name + "=;expires=Thu, 18 Dec 2013 12:00:00 UTC;path/"
+    document.cookie = name + "=;expires=Thu, 1 Jan 2000 12:00:00 UTC;path/"
 }
